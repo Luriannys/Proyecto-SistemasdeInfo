@@ -97,7 +97,7 @@ export default function Landing() {
                     <h2 className="bold-subtitle">Conecta con alguna de ellas</h2>
                     <div className="group-list">
                         {groupList.map(group =>
-                            <Link to={group.link}><img className="group-logo" src={group.image} alt={group.alt}></img></Link>
+                            <Link key={group.image} to={group.link}><img className="group-logo" src={group.image} alt={group.alt}></img></Link>
                         )}
                     </div>
                 </section>

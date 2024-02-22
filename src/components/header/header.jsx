@@ -14,7 +14,7 @@ export default function Header() {
             <div className="navigation">
                 <ul className="nav">
                     {items.map(item =>
-                        <li ><a className="nav-links" href={item.link}>{item.title}</a></li>
+                        <li key={item.title}><a className="nav-links" href={item.link}>{item.title}</a></li>
                     )}
                 </ul>
                 <Link to="/login"><button type="button" className="login">Ingresar</button></Link>

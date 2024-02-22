@@ -16,7 +16,7 @@ export default function Footer() {
                     <h3 className="footer-title">Links</h3>
                     <ul className="nav-footer">
                         {items.map(item =>
-                            <li className="list-item-footer"><Link className="nav-links-footer" to={item.link}>{item.title}</Link></li>
+                            <li key={item.title} className="list-item-footer"><Link className="nav-links-footer" to={item.link}>{item.title}</Link></li>
                         )}
                         <li className="list-item-footer"><a className="nav-links-footer" href="#about">Sobre nosotros</a></li>
                     </ul>
