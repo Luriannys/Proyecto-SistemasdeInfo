@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './landing.css'
 import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 import HeroImage from '../../assets/rescate.jpeg'
 
 
@@ -16,7 +17,7 @@ export default function Landing() {
                     <h1 className="hero-text">Conecta con las <br></br> Agrupaciones Estudiantiles</h1>
                 </div>
             </section>
-
+            <Footer></Footer>
         </div>
 
 
