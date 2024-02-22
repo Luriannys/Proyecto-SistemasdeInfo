@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
+
 import './landing.css'
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
-import HeroImage from '../../assets/rescate.jpeg'
+
+import HeroImage1 from '../../assets/rescate.jpeg'
+import HeroImage2 from '../../assets/musicum.jpg'
+import HeroImage3 from '../../assets/tigers.jpg'
+import HeroImage4 from '../../assets/aiesec.jpg'
+
 import metromun from '../../assets/metromun.jpg'
 import formula from '../../assets/formula.jpg'
 import cavum from '../../assets/cavum.jpg'
@@ -19,6 +25,9 @@ import radio from "../../assets/logos/Logo_RADIO_UNIMET._JPG-removebg-preview.pn
 import metromunWorld from "../../assets/logos/Logo-MetroMUNWorld.png"
 import samanFilm from "../../assets/logos/Samán Film Society - ps.png"
 import thespisLogo from "../../assets/logos/Thespis_Versión_1-removebg-preview.png"
+
+
+const imageArray = [HeroImage1, HeroImage2, HeroImage3, HeroImage4];
 
 const groupList = [
     { image: jazzLogo, link: "", alt: "Jazz en concreto" },
@@ -36,11 +45,23 @@ const groupList = [
 ]
 
 export default function Landing() {
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        const timerId = setInterval(() => {
+            setCount((count) => count + 1);
+        }, 4000);
+
+        return () => clearInterval(timerId);
+    }, []);
+
+    const image = imageArray[count % imageArray.length];
+
     return (
         <div className="Landing">
             <section className="hero">
                 <div className="filter">
-                    <img src={HeroImage} alt="university" className="heroImage" />
+                    <img src={image} alt="university" className="heroImage" />
                 </div>
                 <Header></Header>
                 <div className="caption-container">
