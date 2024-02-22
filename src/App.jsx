@@ -7,14 +7,18 @@ import {
 import './App.css'
 import Login from './pages/login/login'
 import Register from './pages/register/register'
-import Header from './components/header/header';
-
+import Landing from './pages/landing/landing';
 function App() {
 
   return (
     <>
       <Router>
         <Routes>
+          <Route
+            exact
+            path="/"
+            element={<Landing />}
+          ></Route>
           <Route
             exact
             path="/login"
