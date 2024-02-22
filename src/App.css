@@ -9,3 +9,12 @@ html {
 body {
   background: #F4F2EF;
 }
+
+p {
+  color: #000;
+  font-family: "Red Hat Display";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
