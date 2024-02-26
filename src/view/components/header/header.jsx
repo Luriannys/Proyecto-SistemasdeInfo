@@ -1,4 +1,3 @@
-import React from "react";
 import './header.css'
 import logo from '../../assets/unimetLogo.png'
 import { Link } from "react-router-dom";
