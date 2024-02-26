@@ -5,9 +5,10 @@ import {
   Route
 } from "react-router-dom";
 import './App.css'
-import Login from './pages/login/login'
-import Register from './pages/register/register'
-import Landing from './pages/landing/landing';
+import Login from './view/pages/login/login';
+import Register from './view/pages/register/register';
+import Landing from './view/pages/landing/landing';
+
 function App() {
 
   return (
