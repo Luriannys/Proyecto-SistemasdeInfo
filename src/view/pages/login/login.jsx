@@ -35,17 +35,17 @@ export default function Login() {
 }
 
 function passwordVisibility() {
-    var x = document.getElementById("passwordInput");
-    var y = document.getElementById("eye_close");
-    var z = document.getElementById("eye_open");
-    if (x.type === "password") {
-        x.type = "text";
-        y.style.display = 'none';
-        z.style.display = 'flex';
+    var inputType = document.getElementById("passwordInput");
+    var close = document.getElementById("eye_close");
+    var open = document.getElementById("eye_open");
+    if (inputType.type === "password") {
+        inputType.type = "text";
+        close.style.display = 'none';
+        open.style.display = 'flex';
     } else {
-        x.type = "password";
-        y.style.display = 'flex';
-        z.style.display = 'none';
+        inputType.type = "password";
+        close.style.display = 'flex';
+        open.style.display = 'none';
     }
 }
 
