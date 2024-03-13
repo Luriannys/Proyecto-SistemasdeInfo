@@ -32,10 +32,8 @@ export default function Login() {
                                 setPassword(e.target.value);
                             }}>
                         </CustomInput>
-                        <a href="" className="forgot">Olvidé mi contraseña</a>
-                        <button type="button" className="send" onClick={() => authService.signIn(email, password)}>Login</button>
-                        <button type="button" className="send" onClick={() => authService.signOut()}>logout</button>
-                        <p>{authService.getCurrentUser()?.email}</p>
+                        <a href="#" className="forgot" onClick={() => authService.forgotPassword(email)}>Olvidé mi contraseña</a>
+                        <Link style={{ textDecoration: "none" }} to='/dashboard'><button type="button" className="send" onClick={() => authService.signIn(email, password)}>Login</button></Link>
                         <hr></hr>
                         <button type="button" className="google" onClick={() => authService.signUpWithGoogle()}><img src={google_icon} className="icon" alt="icon" /><p>Acceder con Google</p></button>
                         <p className="register">¿No estás registrado? <Link to="/register">Crear Cuenta</Link></p>

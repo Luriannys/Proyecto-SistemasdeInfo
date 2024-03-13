@@ -3,7 +3,8 @@ import {
     signInWithPopup,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    signOut
+    signOut,
+    sendPasswordResetEmail
 } from "firebase/auth";
 import { auth } from './firebase';
 import firestoreService from './FirestoreService'
@@ -81,6 +82,17 @@ class AuthService {
             console.error('Error signing out:', error);
             throw error;
         }
+    }
+
+    // Forgot password
+    async forgotPassword(email) {
+        sendPasswordResetEmail(this.auth, email)
+            .then(() => {
+                alert('Se ha enviado un correo para cambiar la contraseña');
+            })
+            .catch((error) => {
+                console.log(error.message)
+            });
     }
 
     // Get the current user (if authenticated)
