@@ -78,6 +78,7 @@ button.send {
     font-weight: 700;
     line-height: 17px;
     letter-spacing: 0.25px;
+    cursor: pointer;
 }
 
 button.google {
@@ -98,6 +99,7 @@ button.google {
     line-height: 17px;
     letter-spacing: 0.25px;
     background-color: #fff;
+    cursor: pointer;
 }
 
 button>img {

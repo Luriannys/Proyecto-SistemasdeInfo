@@ -37,7 +37,7 @@ export default function Login() {
                         <button type="button" className="send" onClick={() => authService.signOut()}>logout</button>
                         <p>{authService.getCurrentUser()?.email}</p>
                         <hr></hr>
-                        <button type="button" className="google"><img src={google_icon} className="icon" alt="icon" /><p>Acceder con Google</p></button>
+                        <button type="button" className="google" onClick={() => authService.signUpWithGoogle()}><img src={google_icon} className="icon" alt="icon" /><p>Acceder con Google</p></button>
                         <p className="register">¿No estás registrado? <Link to="/register">Crear Cuenta</Link></p>
                     </div>
                 </div>

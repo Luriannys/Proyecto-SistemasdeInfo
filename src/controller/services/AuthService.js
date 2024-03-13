@@ -1,6 +1,19 @@
+import {
+    GoogleAuthProvider,
+    signInWithPopup,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut
+} from "firebase/auth";
 import { auth } from './firebase';
-import { doc, setDoc } from 'firebase/firestore'
 import firestoreService from './FirestoreService'
+import { doc, setDoc, getDoc } from 'firebase/firestore'
+
+
+const googleProider = new GoogleAuthProvider();
+googleProider.setCustomParameters({
+    prompt: "select_account "
+});
 
 class AuthService {
     constructor() {
@@ -14,7 +27,7 @@ class AuthService {
     // Sign up with email and password
     async signUp(email, password, name, phone) {
         try {
-            const user = await this.auth.createUserWithEmailAndPassword(email, password);
+            const user = await createUserWithEmailAndPassword(this.auth, email, password);
             console.log(user.user.uid)
             const userRef = doc(firestoreService.db, 'users', user.user.uid)
             await setDoc(userRef, {
@@ -28,10 +41,32 @@ class AuthService {
         }
     }
 
+    async signUpWithGoogle() {
+        try {
+            const result = await signInWithPopup(this.auth, googleProider);
+            const user = result.user;
+            const userRef = doc(firestoreService.db, 'users', user.uid)
+            const docSnap = await getDoc(userRef);
+            if (!docSnap.exists()) {
+                await setDoc(userRef, {
+                    name: user.displayName,
+                    email: user.email,
+                    phoneNumber: user.phoneNumber != null ? user.phoneNumber : null,
+                })
+            } else {
+                console.log("The user already exists");
+            }
+            return result;
+        } catch (error) {
+            console.error('Error signing up:', error);
+            throw error;
+        }
+    }
+
     // Sign in with email and password
     async signIn(email, password) {
         try {
-            await this.auth.signInWithEmailAndPassword(email, password);
+            await signInWithEmailAndPassword(this.auth, email, password);
         } catch (error) {
             console.error('Error signing in:', error);
             throw error;
@@ -41,7 +76,7 @@ class AuthService {
     // Sign out
     async signOut() {
         try {
-            await this.auth.signOut();
+            await signOut(this.auth);
         } catch (error) {
             console.error('Error signing out:', error);
             throw error;
