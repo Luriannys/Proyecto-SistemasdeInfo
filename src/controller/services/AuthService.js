@@ -1,6 +1,6 @@
 import { auth } from './firebase';
-import firestoreService from './FirestoreService'
 import { doc, setDoc } from 'firebase/firestore'
+import firestoreService from './FirestoreService'
 
 class AuthService {
     constructor() {
@@ -28,6 +28,30 @@ class AuthService {
         }
     }
 
+    // Sign in with email and password
+    async signIn(email, password) {
+        try {
+            await this.auth.signInWithEmailAndPassword(email, password);
+        } catch (error) {
+            console.error('Error signing in:', error);
+            throw error;
+        }
+    }
+
+    // Sign out
+    async signOut() {
+        try {
+            await this.auth.signOut();
+        } catch (error) {
+            console.error('Error signing out:', error);
+            throw error;
+        }
+    }
+
+    // Get the current user (if authenticated)
+    getCurrentUser() {
+        return this.auth.currentUser;
+    }
 
 }
 
