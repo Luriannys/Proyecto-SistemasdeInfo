@@ -26,6 +26,7 @@ import metromunWorld from "../../assets/logos/Logo-MetroMUNWorld.png";
 import samanFilm from "../../assets/logos/Samán Film Society - ps.png";
 import thespisLogo from "../../assets/logos/Thespis_Versión_1-removebg-preview.png";
 import Agrupacion from "../agrupacion/agrupacion";
+import MenuAgrup from "../menuAgrup/menuAgrup";
 
 const imageArray = [HeroImage1, HeroImage2, HeroImage3, HeroImage4];
 
@@ -56,10 +57,6 @@ export default function Landing() {
   }, []);
 
   const image = imageArray[count % imageArray.length];
-
-  const handleAgrupSelection = (item) => {
-    navigate(`/agrupacion/${item}`);
-  };
 
   return (
     <div className="Landing">
@@ -135,14 +132,8 @@ export default function Landing() {
           </div>
         </section>
       </section>
-      {/* <button
-        className="btn"
-        // key={item.id}
-        onClick={() => handleAgrupSelection("4fGN2NhCfR6hfvQaM0ts")}
-      >
-        Info
-      </button>
-      <Agrupacion info={selectedClub} /> */}
+      <button>Menu de Agrupaciones</button>
+      <MenuAgrup />
       <Footer></Footer>
     </div>
   );

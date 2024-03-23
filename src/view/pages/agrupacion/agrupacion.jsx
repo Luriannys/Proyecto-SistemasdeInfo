@@ -31,12 +31,11 @@ import thespisLogo from "../../assets/logos/Thespis_Versión_1-removebg-preview.
 
 export default function Agrupacion() {
   const [agrupacion, setAgrupacion] = useState(null);
-  // const [gameDetails, setGameDetails] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     const fetchAgrupacion = async () => {
-      const docRef = doc(db, "agrupaciones", id);
+      const docRef = doc(db, "Agrupaciones", id);
       const docSnap = await getDoc(docRef);
 
       if (docSnap.exists()) {
@@ -46,31 +45,20 @@ export default function Agrupacion() {
       }
     };
 
-    if (!agrupacion) {
-      return <div></div>;
-    }
-
-    // const fetchGame = async () => {
-    //   const gameCollection = collection(db, "games");
-    //   const snapshot = await getDocs(gameCollection);
-    //   const list = snapshot.docs.map((doc) => ({
-    //     id: doc.id,
-    //     ...doc.data(),
-    //   }));
-    //   setGameDetails(list);
-    // };
-
     fetchAgrupacion();
-    // fetchGame();
   }, []);
 
+  if (!agrupacion) {
+    return <div></div>;
+  }
+
   return (
-    <div className="Agrupacion">
+    <div>
       <Header></Header>
-      <h1 className="title">{agrupacion.nombre}</h1>
-      <p className="clubBox">{agrupacion.descripcion}</p>
-      <button className="btn">Donar</button>
-      <button className="btn">Agregar Testimonio</button>
+      <h1>{agrupacion.nombre}</h1>
+      <p>{agrupacion.descripcion}</p>
+      <button> Donar </button>
+      <button> Agregar Testimonio </button>
       <Footer></Footer>
     </div>
   );
