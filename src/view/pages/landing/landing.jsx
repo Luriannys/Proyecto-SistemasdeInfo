@@ -132,8 +132,9 @@ export default function Landing() {
           </div>
         </section>
       </section>
-      <button>Menu de Agrupaciones</button>
-      <MenuAgrup />
+      <Link to="/menuAgrup">
+        <button>Menu de Agrupaciones</button>
+      </Link>
       <Footer></Footer>
     </div>
   );
