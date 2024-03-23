@@ -40,7 +40,7 @@ export default function MenuAgrup() {
     fetchItems();
   }, []);
 
-  const handleClubSelection = (item) => {
+  const handleAgrupSelection = (item) => {
     navigate(`/agrupacion/${item.id}`);
   };
 
@@ -50,6 +50,7 @@ export default function MenuAgrup() {
 
   return (
     <div>
+      <Header></Header>
       <h1>Agrupaciones</h1>
       <ul>
         {items.map((item) => (
@@ -57,13 +58,14 @@ export default function MenuAgrup() {
             <span>
               <strong>{item.nombre}:</strong> {item.descripcion}
             </span>
-            <button key={item.id} onClick={() => handleClubSelection(item)}>
+            <button key={item.id} onClick={() => handleAgrupSelection(item)}>
               Info
             </button>
             <Agrupacion info={selectedAgrup} />
           </li>
         ))}
       </ul>
+      <Footer></Footer>
     </div>
   );
 }
