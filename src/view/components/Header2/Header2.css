@@ -1,0 +1,90 @@
+.bar{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 90px;
+    background-color: rgba(47, 72, 88, 1);
+    justify-content: space-between;
+}
+
+.menu{
+    width: 135px;
+    height: 150px;
+    background-color: rgb(121, 151, 170);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    right: 10%;
+    top: 107%;
+    
+}
+.btn_p{
+    background-color: transparent;
+    border: none;
+    font-size: medium;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.l{
+    margin-top: 18px;
+    margin-bottom: 11px;
+    text-decoration: none;
+    
+    font-weight: bold;
+}
+.logo_{
+    width: 126.91px;
+    height: 54px;
+    margin-left: 129.09px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    
+}
+
+.search{
+    width: 549.62px;
+    height: 25px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    margin-top: 24px;
+    margin-bottom: 20px;
+
+
+}
+.perfil{
+    display: flex;
+    flex-direction: row;
+    margin-right: 184.86px;
+    margin-top: 22px;
+    margin-bottom: 28px;
+}
+.icon{
+    display: flex;
+    background-color: #FFFFFF;
+    width: fit-content;
+    height: 23px;
+    border-radius: 50px;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn_expand{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    background-color: transparent;
+    border-radius: 100px;
+    border: transparent;
+    cursor: pointer;
+    padding-top: 8px;
+
+
+}

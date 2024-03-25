@@ -1,7 +1,10 @@
 import "./agrupacion.css";
-import Header from "../../components/header/header";
+import Header2 from "../../components/Header2/Header2";
 import Footer from "../../components/footer/footer";
 import { db } from "/src/controller/services/firebase.js";
+import saman from '../../assets/saman.jpg';
+import ig from '../../assets/ig.svg';
+import email from '../../assets/email.svg';
 import {
   doc,
   getDoc,
@@ -36,26 +39,37 @@ export default function Agrupacion() {
     return <div></div>;
   }
 
+
+
   return (
     <div>
-      <Header></Header>
-      <h1>{agrupacion.nombre}</h1>
+      <Header2 />
+      <div className="imagen_group">
+      <img className='foto' src={saman}></img>
+      <h1 className="title_g">{agrupacion.nombre}</h1>
+      </div>
+      <div className="Info_card">
       <p>{agrupacion.descripcion}</p>
-      <button> Donar </button>
-      <button> Agregar Testimonio </button>
-      <span>
-        <strong>Contáctanos</strong>
-        <p>{agrupacion.instagram}</p>
-        <p>{agrupacion.email}</p>
-      </span>
-      <span> Mira lo que otros opinan </span>
-      <ul>
+      <div className="btns">
+      <button className="btns_"> <strong>Donar </strong></button>
+      <button className="btns_"> <strong>Agregar Testimonio</strong> </button>
+      <button className="btns_"> <strong>Unete </strong></button>
+      </div>
+      <div style={{ margin:'10px' }}>
+      <strong>Contáctanos</strong>
+      
+        <div className="contact_us"><img className='icon_i' src={ig}/><p>{agrupacion.instagram}</p></div>
+        <div className="contact_us"><img className='icon_i' src={email}/><p>{agrupacion.email}</p></div>
+      </div>
+      <span style={{ color: 'black', fontSize: '40px', textAlign:'center' }}>Mira lo que <span style={{ color: '#FD8204', fontSize: '40px', textAlign:'center'}}>otros opinan</span></span>
+      <ul className="testimonies">
         {agrupacion.testimonios.map((item) => (
-          <li>
-            <span>{item}</span>
+          <li style={{listStyleType: 'none'}} className="feedback_box">
+            <span >{item}</span>
           </li>
         ))}
       </ul>
+      </div>
       <Footer></Footer>
     </div>
   );
