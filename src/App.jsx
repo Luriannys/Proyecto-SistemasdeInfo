@@ -6,6 +6,7 @@ import Landing from "./view/pages/landing/landing";
 import Dashboard from "./view/pages/dashboard/dashboard";
 import Agrupacion from "./view/pages/agrupacion/agrupacion";
 import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
+import  Perfil  from "./view/pages/Perfil/Perfil";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />}></Route>
           <Route exact path="/menuAgrup" element={<MenuAgrup />}></Route>
           <Route exact path="/agrupacion/:id" element={<Agrupacion />}></Route>
+          <Route exact path='/Perfil' element={<Perfil/>}> </Route>
         </Routes>
       </Router>
     </>

@@ -1,5 +1,5 @@
 import "./menuAgrup.css";
-import Header from "../../components/header/header";
+import Header2 from "../../components/Header2/Header2";
 import Footer from "../../components/footer/footer";
 import { db } from "/src/controller/services/firebase.js";
 import {
@@ -50,17 +50,17 @@ export default function MenuAgrup() {
 
   return (
     <div>
-      <Header></Header>
-      <h1>Agrupaciones</h1>
-      <ul>
+      <Header2/>
+      <ul className="group_card">
         {items.map((item) => (
-          <li key={item.id}>
-            <span>
-              <strong>{item.nombre}:</strong> {item.descripcion}
-            </span>
-            <button key={item.id} onClick={() => handleAgrupSelection(item)}>
-              Info
+          <li className='card' key={item.id} style={{listStyleType: 'none'}}>
+            <div className="title">
+              <strong>{item.nombre}</strong>
+              <button className="btn_info" key={item.id} onClick={() => handleAgrupSelection(item)}>
+              VER MAS
             </button>
+            </div>
+        
             <Agrupacion info={selectedAgrup} />
           </li>
         ))}
