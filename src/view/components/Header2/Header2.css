@@ -43,17 +43,6 @@
   margin-bottom: 18px;
 }
 
-.search {
-  width: 549.62px;
-  height: 25px;
-  padding: 10px;
-  text-align: center;
-  border-radius: 25px;
-  background-color: #ffffff;
-  margin-top: 24px;
-  margin-bottom: 20px;
-  position: absolute;
-}
 .perfil {
   display: flex;
   flex-direction: row;
@@ -81,4 +70,18 @@
   border: transparent;
   cursor: pointer;
   padding-top: 8px;
+}
+
+@media (max-width: 1148px) {
+  .logo_{
+    margin-left: 0px;
+  }
+
+}
+
+@media (max-width: 923px) {
+  .perfil{
+    margin-right: 0px;
+  }
+
 }

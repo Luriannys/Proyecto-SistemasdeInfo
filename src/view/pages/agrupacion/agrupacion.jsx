@@ -49,7 +49,7 @@ export default function Agrupacion() {
       <h1 className="title_g">{agrupacion.nombre}</h1>
       </div>
       <div className="Info_card">
-      <p>{agrupacion.descripcion}</p>
+      <p className="paragraph">{agrupacion.descripcion}</p>
       <div className="btns">
       <button className="btns_"> <strong>Donar </strong></button>
       <button className="btns_"> <strong>Agregar Testimonio</strong> </button>

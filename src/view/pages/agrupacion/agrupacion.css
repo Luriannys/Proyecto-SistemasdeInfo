@@ -80,3 +80,22 @@
     border: 1px solid #A9A9A9;
     
 }
+@media (max-width: 1091px) {
+    .Info_card{
+        margin-left: 80px;
+        
+
+    }}
+
+@media (max-width: 710px) {
+        .paragraph{
+            height: 100px;
+            
+    
+        }
+    
+    .title_g{
+        right: 19%;
+    }
+
+}
