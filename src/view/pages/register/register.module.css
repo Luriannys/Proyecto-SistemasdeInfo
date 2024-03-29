@@ -1,7 +1,7 @@
 .Register {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
@@ -71,7 +71,7 @@ button.send {
 .university_image {
     object-fit: cover;
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     display: block;
 }
 

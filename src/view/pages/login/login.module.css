@@ -1,7 +1,7 @@
 .Login {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
@@ -129,7 +129,7 @@ hr {
 .saman_image {
     object-fit: cover;
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     display: block;
 }
 
