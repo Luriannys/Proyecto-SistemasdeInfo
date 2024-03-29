@@ -1,18 +1,18 @@
-import './form.css'
+import style from './form.module.css'
 
 const CustomInput = ({ ...props }) => {
 
     return (
         <>
-            <div className="input_wrapp">
+            <div className={style.input_wrapp}>
                 {props.label &&
-                    <p className="label">
+                    <p className={style.label}>
                         {props.label}
                     </p>
                 }
-                <div className='input_container'>
+                <div className={style.input_container}>
                     {props.preffixIcon &&
-                        <div className="input_icon">
+                        <div className={style.input_icon}>
                             {props.preffixIcon}
                         </div>
                     }
@@ -27,7 +27,7 @@ const CustomInput = ({ ...props }) => {
                     />
 
                     {props.suffixIcon &&
-                        <div onClick={props.onClick} className="input_icon">
+                        <div onClick={props.onClick} className={style.input_icon}>
                             {props.suffixIcon}
                         </div>
                     }

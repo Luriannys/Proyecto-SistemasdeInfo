@@ -25,8 +25,6 @@ import radio from "../../assets/logos/Logo_RADIO_UNIMET._JPG-removebg-preview.pn
 import metromunWorld from "../../assets/logos/Logo-MetroMUNWorld.png";
 import samanFilm from "../../assets/logos/Samán Film Society - ps.png";
 import thespisLogo from "../../assets/logos/Thespis_Versión_1-removebg-preview.png";
-import Agrupacion from "../agrupacion/agrupacion";
-import MenuAgrup from "../menuAgrup/menuAgrup";
 
 const imageArray = [HeroImage1, HeroImage2, HeroImage3, HeroImage4];
 
@@ -132,9 +130,6 @@ export default function Landing() {
           </div>
         </section>
       </section>
-      <Link to="/menuAgrup">
-        <button>Menu de Agrupaciones</button>
-      </Link>
       <Footer></Footer>
     </div>
   );

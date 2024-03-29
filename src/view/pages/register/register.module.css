@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.register-form {
+.register_form {
     width: 400px;
 
 }
@@ -68,7 +68,7 @@ button.send {
     flex-basis: 50%;
 }
 
-.university-image {
+.university_image {
     object-fit: cover;
     width: 50vw;
     height: 100vh;
