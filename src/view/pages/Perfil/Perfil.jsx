@@ -19,6 +19,7 @@ export default function Perfil() {
             <h5>Fecha de Nacimiento: </h5>
             <h5>Agrupaciones a las que pertenezco: </h5>
         </div>
+        
         <div className='User_edit'>
             <div className='c'>
             <label>Nombre 
@@ -41,7 +42,6 @@ export default function Perfil() {
             <label>Carrera
                 <input className= 'input' type='text' />
             </label>
-            
             </div>
             <button className='btn_edit'> Actualizar </button>
             </div>
