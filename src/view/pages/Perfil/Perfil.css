@@ -87,3 +87,52 @@
     background-color: #FD8204;
     cursor: pointer;
 }
+
+@media (max-width: 1101px) {
+    .User_cont{
+        flex-direction: column;
+
+    }
+
+    .User_edit{
+        margin-top: 30px;
+        margin-left: 3px;
+    }
+
+    .btn_edit{
+        bottom: -40%;
+        right: 45%;
+
+    }
+
+}
+
+
+@media (max-width: 970px) {
+    .User_cont{
+        margin-left: 40px;
+
+    }
+
+    .User_edit{
+        flex-direction: column;
+        width: min-content;
+        height: min-content;
+    }
+
+    .btn_edit{
+        bottom: -85%;
+        right: 70%;
+
+    }
+}
+
+
+@media (max-width: 604px) {
+    .btn_edit{
+        bottom: -88%;
+        right: 48%;
+
+    }
+
+}

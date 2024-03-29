@@ -17,6 +17,7 @@ import Agrupacion from "../agrupacion/agrupacion";
 export default function MenuAgrup() {
   const [items, setItems] = useState([]);
   const [selectedAgrup, setSelectedAgrup] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
 
@@ -44,23 +45,36 @@ export default function MenuAgrup() {
     navigate(`/agrupacion/${item.id}`);
   };
 
+  const filteredAgrup = items.filter((agrupacion) =>
+    agrupacion.nombre.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+  );
+
   if (!items || items.length === 0) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <Header2/>
+      <Header2 />
+      <input
+        placeholder="Ingresa el nombre del juego"
+        className="search"
+        onChange={(e) => setSearchQuery(e.target.value)}
+      ></input>
       <ul className="group_card">
-        {items.map((item) => (
-          <li className='card' key={item.id} style={{listStyleType: 'none'}}>
+        {filteredAgrup.map((item) => (
+          <li className="card" key={item.id} style={{ listStyleType: "none" }}>
             <div className="title">
               <strong>{item.nombre}</strong>
-              <button className="btn_info" key={item.id} onClick={() => handleAgrupSelection(item)}>
-              VER MAS
-            </button>
+              <button
+                className="btn_info"
+                key={item.id}
+                onClick={() => handleAgrupSelection(item)}
+              >
+                VER MAS
+              </button>
             </div>
-        
+
             <Agrupacion info={selectedAgrup} />
           </li>
         ))}
