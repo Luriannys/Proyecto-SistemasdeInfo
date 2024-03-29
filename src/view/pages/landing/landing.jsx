@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import "./landing.css";
+import style from "./landing.module.css";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 
@@ -57,24 +57,24 @@ export default function Landing() {
   const image = imageArray[count % imageArray.length];
 
   return (
-    <div className="Landing">
-      <section className="hero">
-        <div className="filter">
-          <img src={image} alt="university" className="heroImage" />
+    <div className={style.Landing}>
+      <section className={style.hero}>
+        <div className={style.filter}>
+          <img src={image} alt="university" className={style.heroImage} />
         </div>
         <Header></Header>
-        <div className="caption-container">
-          <h1 className="hero-text">
+        <div className={style.caption_container}>
+          <h1 className={style.hero_text}>
             Conecta con las <br></br> Agrupaciones Estudiantiles
           </h1>
         </div>
       </section>
-      <section className="content">
-        <section id="about">
-          <div className="mision">
-            <div className="about-text">
-              <h2 className="subTitle">Nuestra Misión</h2>
-              <p className="about-description">
+      <section className={style.content}>
+        <section id="about" className={style.about}>
+          <div className={style.mision}>
+            <div className={style.about_text}>
+              <h2 className={style.subTitle}>Nuestra Misión</h2>
+              <p className={style.about_description}>
                 Proporcionar una plataforma que permita a los estudiantes
                 conectar, contactar y unirse a las agrupaciones estudiantiles de
                 su interés, así como gestionar sus propias agrupaciones, con el
@@ -84,13 +84,13 @@ export default function Landing() {
                 de pertenencia y la identidad grupal.
               </p>
             </div>
-            <img src={metromun} className="sectionImage" alt="metromun"></img>
+            <img src={metromun} className={style.sectionImage} alt="metromun"></img>
           </div>
-          <div className="vision">
-            <img src={cavum} className="sectionImage" alt="cavum"></img>
-            <div className="about-text">
-              <h2 className="subTitle">Nuestra Visión</h2>
-              <p className="about-description">
+          <div className={style.vision}>
+            <img src={cavum} className={style.sectionImage} alt="cavum"></img>
+            <div className={style.about_text}>
+              <h2 className={style.subTitle}>Nuestra Visión</h2>
+              <p className={style.about_description}>
                 Ser una herramienta líder e innovadora que potencie el
                 desarrollo personal y profesional de los estudiantes, al
                 brindarles oportunidades de integración, aprendizaje y liderazgo
@@ -100,10 +100,10 @@ export default function Landing() {
               </p>
             </div>
           </div>
-          <div className="objective">
-            <div className="about-text">
-              <h2 className="subTitle">Nuestro Objetivo</h2>
-              <p className="about-description">
+          <div className={style.objective}>
+            <div className={style.about_text}>
+              <h2 className={style.subTitle}>Nuestro Objetivo</h2>
+              <p className={style.about_description}>
                 Facilitar la visibilidad de los grupos estudiantiles de la
                 universidad y promover la participación activa de los
                 estudiantes en la vida universitaria haciendo uso de estos
@@ -111,17 +111,17 @@ export default function Landing() {
                 estudiantes que comparten intereses comunes en diversas áreas.
               </p>
             </div>
-            <img src={formula} className="sectionImage" alt="formula sae"></img>
+            <img src={formula} className={style.sectionImage} alt="formula sae"></img>
           </div>
         </section>
 
-        <section id="groups">
-          <h2 className="bold-subtitle">Conecta con alguna de ellas</h2>
-          <div className="group-list">
+        <section id="groups" className={style.groups}>
+          <h2 className={style.bold_subtitle}>Conecta con alguna de ellas</h2>
+          <div className={style.group_list}>
             {groupList.map((group) => (
               <Link key={group.image} to={group.link}>
                 <img
-                  className="group-logo"
+                  className={style.group_logo}
                   src={group.image}
                   alt={group.alt}
                 ></img>

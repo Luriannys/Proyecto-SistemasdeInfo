@@ -20,7 +20,7 @@
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.caption-container {
+.caption_container {
     height: 70vh;
     position: relative;
     display: flex;
@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-h1.hero-text {
+h1.hero_text {
 
     color: #FFF;
     text-align: center;
@@ -49,11 +49,11 @@ h1.hero-text {
     align-items: center;
 }
 
-#about {
+.about {
     width: 1120px;
 }
 
-#groups {
+.groups {
     width: 1120px;
 }
 
@@ -85,23 +85,23 @@ h1.hero-text {
     margin: 40px 0px;
 }
 
-p.about-description {
+p.about_description {
     margin: 0;
 }
 
-.mision>.about-text {
+.mision>.about_text {
     margin-right: 20px;
 }
 
-.objective>.about-text {
+.objective>.about_text {
     margin-right: 20px;
 }
 
-.vision>.about-text {
+.vision>.about_text {
     margin-left: 20px;
 }
 
-.bold-subtitle {
+.bold_subtitle {
     color: #000;
     text-align: center;
     font-family: "Red Hat Display";
@@ -112,7 +112,7 @@ p.about-description {
     margin-bottom: 50px;
 }
 
-.group-logo {
+.group_logo {
     width: 170px;
     height: 170px;
     flex-shrink: 0;
@@ -120,7 +120,7 @@ p.about-description {
     margin-bottom: 20px;
 }
 
-.group-list {
+.group_list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
