@@ -12,7 +12,10 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
+<<<<<<< Updated upstream
     align-items: center;
+=======
+>>>>>>> Stashed changes
 }
 
 .logoFooter {

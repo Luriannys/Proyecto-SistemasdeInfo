@@ -55,8 +55,13 @@ export default function Agrupacion() {
       <button className="btns_"> <strong>Agregar Testimonio</strong> </button>
       <button className="btns_"> <strong>Unete </strong></button>
       </div>
-      <div style={{ margin:'10px' }}>
+      <div style={{ marginBottom: '15px' }}>
+      <div style={{ marginBottom: '15px'}}>
       <strong>Contáctanos</strong>
+<<<<<<< Updated upstream
+=======
+      </div>
+>>>>>>> Stashed changes
         <div className="contact_us"><img className='icon_i' src={ig}/><p>{agrupacion.instagram}</p></div>
         <div className="contact_us"><img className='icon_i' src={email}/><p>{agrupacion.email}</p></div>
       </div>

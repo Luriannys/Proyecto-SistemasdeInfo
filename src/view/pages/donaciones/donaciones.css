@@ -9,6 +9,10 @@
     width: 100%;
     object-fit: cover;
     display: block;
+<<<<<<< Updated upstream
+=======
+    object-position: center 65%;
+>>>>>>> Stashed changes
 }
 
 .title {
@@ -24,7 +28,11 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+<<<<<<< Updated upstream
     margin-top: 50px ;
+=======
+    margin-top: 80px ;
+>>>>>>> Stashed changes
     margin-right: 350px;
     margin-left: 350px;
     text-align: justify;
@@ -32,7 +40,11 @@
 
 .donaciones_form {
     width: 400px;
+<<<<<<< Updated upstream
     margin-top: 50px;
+=======
+    margin-top: 20px;
+>>>>>>> Stashed changes
 }
 
 
