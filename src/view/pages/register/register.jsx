@@ -7,6 +7,7 @@ import person_icon from '../../assets/person.svg'
 import phone_icon from '../../assets/phone.svg'
 import university from '../../assets/university.jpeg';
 import { useState } from 'react';
+import { useNavigate  } from "react-router-dom";
 
 export default function Register() {
     // create user data
@@ -21,7 +22,8 @@ export default function Register() {
             setErrorMessage("Rellene todos los campos");
         } else {
             authService.signUp(email, password, name, phone);
-            
+            console.log('Usuario registrado con éxito');
+            navigate("/login")
         }
     };
 
