@@ -14,7 +14,16 @@ export default function Register() {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
+    const handleSubmit = () => {
+        if (name === "" || email === "" || password === "" || phone === "") {
+            setErrorMessage("Rellene todos los campos");
+        } else {
+            authService.signUp(email, password, name, phone);
+            
+        }
+    };
 
     return (
         <div className={style.Register}>
@@ -42,7 +51,8 @@ export default function Register() {
                         }}>
                     </CustomInput>
                     <CustomInput label={"Confirmar contraseña"} preffixIcon={<img src={lock_icon} alt="icon" />} type={'text'} placeholder={"Min. 8 caracteres"}></CustomInput>
-                    <button type="button" onClick={() => authService.signUp(email, password, name, phone)} className={style.send}>Crear cuenta</button>
+                    {errorMessage && <div className={style.error_message}>{errorMessage}</div>}
+                    <button type="button" onClick={handleSubmit} className={style.send}>Crear cuenta</button>
                 </div>
             </div>
 
