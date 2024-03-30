@@ -1,12 +1,12 @@
 export class Group{
     constructor(Name,Cat,CreationYear,Instagram,Email,Desc){
         this.Name=Name;
-        this.Cat=Cat;
-        this.CreationYear=CreationYear;
+        this.Cat=Cat; //Categoria
+        this.CreationYear=CreationYear; //Fecha de creacion
         this.Instagram=Instagram;
         this.Email=Email;
         this.Desc=Desc;
-        this.Prate;
+        this.Prate;//Rating promedio
         this.Members=[];
         this.Partnerts;  //Contribuidores
         this.Comments;
