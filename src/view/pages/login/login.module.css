@@ -17,6 +17,11 @@
     width: 400px;
 }
 
+/*Ocultar ojo de password*/
+::-ms-reveal{
+    display: none;
+}
+
 .title {
     width: 100%;
     text-align: left;
