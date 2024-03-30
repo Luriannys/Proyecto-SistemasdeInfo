@@ -6,10 +6,10 @@ export class Group{
         this.Instagram=Instagram;
         this.Email=Email;
         this.Desc=Desc;
-        this.Prate;//Rating promedio
+        this.Prate=0;//Rating promedio
         this.Members=[];
         this.Partnerts;  //Contribuidores
-        this.Comments;
+        this.Comments=[];//Una lista de los comentarios realizados
         this.Available;
     }
 
