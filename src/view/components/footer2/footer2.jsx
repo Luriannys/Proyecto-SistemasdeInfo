@@ -1,25 +1,11 @@
-import { Link } from "react-router-dom";
-import './footer.css'
+import './footer2.css'
 import logo from '../../assets/unimetLogo.png'
 
-const items = [
-    { title: "Iniciar sesión", link: "/login" },
-    { title: "Crear cuenta", link: "/register" },
-]
 export default function Footer() {
     return (
         <div className="Footer">
             <div className="footer-content">
                 <img src={logo} alt="Logo Unimet" className="logoFooter" />
-                <div className="navigation-footer">
-                    <h3 className="footer-title-links">Links</h3>
-                    <ul className="nav-footer">
-                        {items.map(item =>
-                            <li key={item.title} className="list-item-footer"><Link className="nav-links-footer" to={item.link}>{item.title}</Link></li>
-                        )}
-                        <li className="list-item-footer"><a className="nav-links-footer" href="#about">Sobre nosotros</a></li>
-                    </ul>
-                </div>
                 <div className="navigation-footer">
                     <h3 className="footer-title">Contáctanos</h3>
                     <ul className="nav-footer">

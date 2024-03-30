@@ -87,6 +87,11 @@ h1.hero_text {
 
 p.about_description {
     margin: 0;
+    text-align: justify;
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 }
 
 .mision>.about_text {

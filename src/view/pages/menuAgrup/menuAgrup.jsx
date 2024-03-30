@@ -1,6 +1,6 @@
 import "./menuAgrup.css";
 import Header2 from "../../components/Header2/Header2";
-import Footer from "../../components/footer/footer";
+import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
 import {
   doc,
@@ -65,7 +65,7 @@ export default function MenuAgrup() {
           </li>
         ))}
       </ul>
-      <Footer></Footer>
+      <Footer2></Footer2>
     </div>
   );
 }

@@ -23,7 +23,7 @@ const Header2 = () => {
       {isOpen && (
         <div className='menu'>
           <Link to='/Perfil' className='l'><button className='btn_p'>Mi cuenta</button></Link>
-          <Link className='/donaciones'><button className='btn_p'>Realizar Donación</button></Link>
+          <Link to='/donaciones' className='l'><button className='btn_p'>Realizar Donación</button></Link>
           <Link className='l'><button className='btn_p'>Cerrar Sesion</button></Link>
         </div>)}
     </div>

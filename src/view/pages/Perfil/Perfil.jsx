@@ -1,9 +1,8 @@
 import './Perfil.css';
 import Header2 from '../../components/Header2/Header2'
+import Footer2 from "../../components/footer2/footer2";
 import person_icon from '../../assets/person.svg';
 import React from 'react'
-
-
 
 export default function Perfil() {
   return (
@@ -44,13 +43,9 @@ export default function Perfil() {
             
             </div>
             <button className='btn_edit'> Actualizar </button>
-            </div>
-
-        
-
-
+            </div>    
     </div>
-      
+    <Footer2></Footer2>
     </>
   )
 }
