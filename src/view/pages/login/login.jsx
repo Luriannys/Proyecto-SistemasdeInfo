@@ -44,13 +44,16 @@ export default function Login() {
                         <h2 className={style.title}>Inicio de Sesión</h2>
                         <form onSubmit={signIn}>
                         <CustomInput label={"Email"} preffixIcon={<img src={email_icon} alt="icon" />} type={"email"} placeholder={"mail@correo.unimet.edu.ve"}
+                        required= {true}
                             onChange={(e) => {
                                 setEmail(e.target.value);
                             }}>
                         </CustomInput>
                         <CustomInput id="passwordInput" label={"Contraseña"} preffixIcon={<img src={lock_icon} alt="icon" />} suffixIcon={
                             <div><img src={eye_close_icon} alt="icon" id='eye_close' /><img src={eye_icon} alt="icon" id='eye_open' style={{ display: "none" }} /></div>
-                        } onClick={passwordVisibility} type={"password"} placeholder={"123"}
+                        } 
+                        required= {true}
+                        onClick={passwordVisibility} type={"password"} placeholder={"123"}
                             onChange={(e) => {
                                 setPassword(e.target.value);
                             }}>

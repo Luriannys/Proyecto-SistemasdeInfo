@@ -7,6 +7,7 @@ import Dashboard from "./view/pages/dashboard/dashboard";
 import Agrupacion from "./view/pages/agrupacion/agrupacion";
 import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
 import  Perfil  from "./view/pages/Perfil/Perfil";
+import  Donaciones  from "./view/pages/donaciones/donaciones";
 
 import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil} from "./view/components/protectedRoutes/ProtectedRoute";
 import {onAuthStateChanged} from "firebase/auth"
@@ -34,7 +35,6 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Landing />}></Route>
-
           <Route exact path="/login" element={<Login user={user}/>}></Route>
 
           <Route exact path="/register" element={<Register user={user}/>}></Route>
@@ -66,7 +66,6 @@ function App() {
           </ProtectedRoutePerfil>
           }
           ></Route>
-
         </Routes>
       </Router>
     </>
