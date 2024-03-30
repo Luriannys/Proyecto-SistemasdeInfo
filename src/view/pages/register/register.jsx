@@ -9,7 +9,7 @@ import person_icon from '../../assets/person.svg';
 import phone_icon from '../../assets/phone.svg';
 import university from '../../assets/university.jpeg';
 import { useState } from 'react';
-import { useNavigate  } from "react-router-dom";
+import { Navigate  } from "react-router-dom";
 
 export default function Register() {
     // create user data
@@ -18,6 +18,7 @@ export default function Register() {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [registered, setRegistered] = useState(false); 
 
     const handleSubmit = () => {
         if (name === "" || email === "" || password === "" || phone === "") {
@@ -25,7 +26,7 @@ export default function Register() {
         } else {
             authService.signUp(email, password, name, phone);
             console.log('Usuario registrado con éxito');
-            navigate("/login")
+            setRegistered(true);
         }
     };
 
@@ -69,6 +70,7 @@ export default function Register() {
                         
                     {errorMessage && <div className={style.error_message}>{errorMessage}</div>}    
                     <button type="button" onClick={handleSubmit} className={style.send}>Crear cuenta</button>
+                    {registered && <Navigate to="/login" />}
                 </div>
             </div>
 
