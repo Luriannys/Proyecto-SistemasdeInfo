@@ -1,11 +1,11 @@
 import style from './donaciones.module.css';
 import CustomInput from '../../components/form/form';
 import email_icon from '../../assets/email.svg';
-import hashtag_icon from '../../assets/hashtag.svg'; 
-import billete_icon from '../../assets/billete.svg'; 
+import hashtag_icon from '../../assets/hashtag.svg';
+import billete_icon from '../../assets/billete.svg';
 import { useState, useEffect } from 'react';
 import Header2 from "../../components/Header2/Header2";
-import firebase from 'firebase/app';
+import firebase from 'firebase/compat/app';
 import university from '../../assets/university.jpeg';
 import 'firebase/firestore';
 
@@ -56,7 +56,7 @@ export default function Donaciones() {
 
     return (
         <div>
-            <Header2/>
+            <Header2 />
             <div className={style.Donaciones}>
                 <div className={style.container}>
                     <div className={style.donaciones_form}>
@@ -64,7 +64,7 @@ export default function Donaciones() {
                         <div className={style.descripcion}>
                             <img src={university} alt="University" className={style.imagen} />
                             <p className={style.texto}>
-                            Tu apoyo es vital para nuestras agrupaciones estudiantiles. Con tus donaciones, impulsamos programas y servicios que enriquecen la experiencia de nuestra comunidad unimetana. Cada aporte, sin importar su magnitud, tiene un impacto significativo. ¡Únete y haz la diferencia hoy mismo!
+                                Tu apoyo es vital para nuestras agrupaciones estudiantiles. Con tus donaciones, impulsamos programas y servicios que enriquecen la experiencia de nuestra comunidad unimetana. Cada aporte, sin importar su magnitud, tiene un impacto significativo. ¡Únete y haz la diferencia hoy mismo!
                             </p>
                         </div>
                         <CustomInput label={"Agrupación a Donar"} preffixIcon={<img src={billete_icon} alt="icon" />} type={'text'} placeholder={"Indica la agrupación a colaborar..."} onChange={(e) => {
