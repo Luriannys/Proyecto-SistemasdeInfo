@@ -1,18 +1,19 @@
 class user{
-    constructor(){
-        this.Name;
-        this.Email;
-        this.Password;
-        this.PhoneNumber;
-        this.isAdmin;
+    constructor(name,email,password,phone,isadmin){
+        this.Name=name;
+        this.Email=email;
+        this.Password=password;
+        this.PhoneNumber=phone;
+        this.isAdmin=isadmin;
     }
 
-    registro(){
-    }
 }
 
 class user extends student{
-    constructor(){
+    constructor(name,email,password,phone){
+        //llamado a clase de usuario
+        super(name,email,password,phone,false);
+        //comportamiento de estudiante
         this.belongsto=[];
     }
 }
