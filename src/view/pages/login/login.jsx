@@ -55,7 +55,7 @@ export default function Login() {
                                 setPassword(e.target.value);
                             }}>
                         </CustomInput>
-                        {error && <p className="error-message">{error}</p>}
+                        {error && <p className={style.error_message}>{error}</p>}
                         <a href="#" className={style.forgot} onClick={() => authService.forgotPassword(email)}>Olvidé mi contraseña</a>
                         <button type="submit" className={style.send}>Login</button>
                         </form>

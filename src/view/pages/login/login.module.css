@@ -134,9 +134,9 @@ hr {
 }
 
 
-.error-container {
+.error_message {
     color: red;
-    margin-top: 5px;
+    margin-top: 10px;
   }
 
 @media screen and (max-width: 1000px) {
