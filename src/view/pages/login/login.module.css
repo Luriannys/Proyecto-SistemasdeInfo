@@ -133,6 +133,12 @@ hr {
     display: block;
 }
 
+
+.error-container {
+    color: red;
+    margin-top: 5px;
+  }
+
 @media screen and (max-width: 1000px) {
     .container {
         flex-basis: 100%;
