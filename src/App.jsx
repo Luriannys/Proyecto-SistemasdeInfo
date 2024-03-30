@@ -7,6 +7,7 @@ import Dashboard from "./view/pages/dashboard/dashboard";
 import Agrupacion from "./view/pages/agrupacion/agrupacion";
 import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
 import  Perfil  from "./view/pages/Perfil/Perfil";
+import  Donaciones  from "./view/pages/donaciones/donaciones";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />}></Route>
           <Route exact path="/menuAgrup" element={<MenuAgrup />}></Route>
           <Route exact path="/agrupacion/:id" element={<Agrupacion />}></Route>
+          <Route exact path="/donaciones" element={<Donaciones />}></Route>
           <Route exact path='/Perfil' element={<Perfil/>}> </Route>
         </Routes>
       </Router>

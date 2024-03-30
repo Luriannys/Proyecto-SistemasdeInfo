@@ -1,0 +1,77 @@
+.Donaciones {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+.container {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.donaciones_form {
+    width: 400px;
+}
+
+.title {
+    width: 100%;
+    text-align: left;
+    font-family: "Red Hat Display";
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+button.send {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    align-items: center;
+    margin: 26px 0px;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+    background: #FD8204;
+    color: #F4F2EF;
+    font-family: "Red Hat Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 17px;
+    letter-spacing: 0.25px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .Donaciones {
+        flex-direction: column;
+    }
+
+    .container {
+        flex-basis: auto;
+        margin: 20px;
+    }
+
+    .donaciones_form {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .title {
+        font-size: 22px;
+    }
+
+    .donaciones_form {
+        width: 90%;
+        max-width: 300px;
+    }
+}

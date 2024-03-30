@@ -14,7 +14,7 @@ import {
   where,
 } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function Agrupacion() {
   const [agrupacion, setAgrupacion] = useState(null);
@@ -51,7 +51,7 @@ export default function Agrupacion() {
       <div className="Info_card">
       <p>{agrupacion.descripcion}</p>
       <div className="btns">
-      <button className="btns_"> <strong>Donar </strong></button>
+      <Link to="/donaciones"><button className="btns_"> <strong>Donar </strong></button></Link>
       <button className="btns_"> <strong>Agregar Testimonio</strong> </button>
       <button className="btns_"> <strong>Unete </strong></button>
       </div>
