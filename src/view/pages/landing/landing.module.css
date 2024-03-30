@@ -87,6 +87,7 @@ h1.hero_text {
 
 p.about_description {
     margin: 0;
+    text-align: justify;
 }
 
 .mision>.about_text {

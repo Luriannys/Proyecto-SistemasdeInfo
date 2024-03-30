@@ -1,6 +1,6 @@
 import "./agrupacion.css";
 import Header2 from "../../components/Header2/Header2";
-import Footer from "../../components/footer/footer";
+import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
 import saman from '../../assets/saman.jpg';
 import ig from '../../assets/ig.svg';
@@ -49,7 +49,7 @@ export default function Agrupacion() {
       <h1 className="title_g">{agrupacion.nombre}</h1>
       </div>
       <div className="Info_card">
-      <p>{agrupacion.descripcion}</p>
+      <p style={{ textAlign: 'justify' }}>{agrupacion.descripcion}</p>
       <div className="btns">
       <Link to="/donaciones"><button className="btns_"> <strong>Donar </strong></button></Link>
       <button className="btns_"> <strong>Agregar Testimonio</strong> </button>
@@ -57,7 +57,6 @@ export default function Agrupacion() {
       </div>
       <div style={{ margin:'10px' }}>
       <strong>Contáctanos</strong>
-      
         <div className="contact_us"><img className='icon_i' src={ig}/><p>{agrupacion.instagram}</p></div>
         <div className="contact_us"><img className='icon_i' src={email}/><p>{agrupacion.email}</p></div>
       </div>
@@ -70,7 +69,7 @@ export default function Agrupacion() {
         ))}
       </ul>
       </div>
-      <Footer></Footer>
+      <Footer2></Footer2>
     </div>
   );
 }
