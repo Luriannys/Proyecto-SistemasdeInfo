@@ -9,6 +9,7 @@ export class Group{
         this.Prate=0;//Rating promedio
         this.Members=[];
         this.Partnerts;  //Contribuidores
+        this.phone;
         this.Comments=[];//Una lista de los comentarios realizados
         this.Available;
     }
@@ -26,11 +27,12 @@ export class Group{
         }        
     }
 
-    UpdateAg(Name,Cat,Instagram,Email,Desc){
+    UpdateAg(Name,Cat,Instagram,Email,Desc,PhoneNum){
         this.Name=Name;
         this.Cat=Cat;
         this.Instagram=Instagram;
         this.Email=Email;
         this.Desc=Desc;
+        this.phone=PhoneNum;
     }
 }
