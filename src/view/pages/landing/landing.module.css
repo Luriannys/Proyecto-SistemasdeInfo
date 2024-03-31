@@ -183,3 +183,9 @@ p.about_description {
         margin: 20px 0;
     }
 }
+
+@media screen and (max-width: 460px) {
+    .group_list {
+        justify-content: center;
+    }
+}
