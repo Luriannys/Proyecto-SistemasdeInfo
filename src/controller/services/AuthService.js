@@ -100,6 +100,20 @@ class AuthService {
         return this.auth.currentUser;
     }
 
+    getUserData = async () => {
+        const user = authService.getCurrentUser()?.uid;
+        console.log(user)
+
+        const docRef = doc(firestoreService.db, "users", user);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            console.log("Document data:", docSnap.data());
+        } else {
+            console.log("No such document!");
+        }
+    }
+
 }
 
 const authService = new AuthService();
