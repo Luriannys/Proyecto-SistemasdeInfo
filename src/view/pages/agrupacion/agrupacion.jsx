@@ -36,13 +36,13 @@ export default function Agrupacion() {
   }
 
   
-  const [unido,Set_unido] = useState(false);
+  /*const [unido,Set_unido] = useState(false);
   const text = unido ? "Desunirse" : "Unete";
   const buttomClassName= unido ? "btns_" : "btns_ unido" ;
     const handleClick = () => {
       Set_unido(!unido)
     }
-
+*/
   return (
     <div>
       <Header2 />
@@ -55,7 +55,7 @@ export default function Agrupacion() {
         <div className="btns">
           <Link to="/donaciones"><button className="btns_"> <strong>Donar </strong></button></Link>
           <button className="btns_"> <strong>Agregar Testimonio</strong> </button>
-          <button className={buttomClassName} onClick={handleClick}> <strong>{text} </strong></button>
+          <button className="btns_"> <strong> Unirse</strong></button>
         </div>
         <div style={{ marginBottom: '15px' }}>
           <div style={{ marginBottom: '15px' }}>
