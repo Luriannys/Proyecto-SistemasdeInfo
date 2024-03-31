@@ -88,3 +88,24 @@ button.create {
     font-weight: 700;
     line-height: normal;
 }
+
+@media screen and (max-width: 1060px) {
+    .Header {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media screen and (max-width: 810px) {
+    .nav {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 450px) {
+    button.create {
+        display: none;
+    }
+
+}

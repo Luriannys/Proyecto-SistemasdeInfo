@@ -28,7 +28,7 @@ export default function Perfil() {
                 <input className= 'input'type='text' />
             </label>
             <label>Telefono
-                <input className= 'input' type='number' />
+                <input className= 'input' type='text' />
             </label>
             </div>
             <div className='c'>
@@ -36,7 +36,7 @@ export default function Perfil() {
                 <input className= 'input' type='email' />
             </label>
             <label>Fecha de Nacimiento 
-                <input className= 'input' type='number' />
+                <input className= 'input' type='date' />
             </label>
             <label>Carrera
                 <input className= 'input' type='text' />

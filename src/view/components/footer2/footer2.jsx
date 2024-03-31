@@ -1,11 +1,14 @@
 import './footer2.css'
 import logo from '../../assets/unimetLogo.png'
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
         <div className="Footer">
             <div className="footer-content">
+                <Link to='/menuAgrup' className='l'>
                 <img src={logo} alt="Logo Unimet" className="logoFooter" />
+                </Link>
                 <div className="navigation-footer">
                     <h3 className="footer-title">Contáctenos</h3>
                     <ul className="nav-footer">
@@ -24,4 +27,3 @@ export default function Footer() {
 
     )
 }
-
