@@ -67,13 +67,13 @@ export default function MenuAgrup() {
       ></input>
       <ul className={style.group_card}>
         {filteredAgrup.map((item) => (
-          <li className="card" key={item.id} style={{ listStyleType: "none", backgroundImage: `url(${item.imagen})`}}>
-            <div className="card_title" >
+          <li className={style.card} key={item.id} style={{ listStyleType: "none", backgroundImage: `url(${item.imagen})`}}>
+            <div className={style.card_title} >
               <strong>{item.nombre}</strong>
             </div>
 
             <button
-              className="btn_info"
+              className={style.btn_info}
               key={item.id}
               onClick={() => handleAgrupSelection(item)}
             >
@@ -85,7 +85,7 @@ export default function MenuAgrup() {
         ))}
       </ul>
       {administrador && (
-              <Link to= '/New_Group'><button className="btn_newG"><img className="mas" src={mas}/></button></Link>
+              <Link to= '/New_Group'><button className={style.btn_newG}><img className={style.mas} src={mas}/></button></Link>
             )}
       <Footer2></Footer2>
     </div>
