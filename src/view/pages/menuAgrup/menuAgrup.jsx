@@ -57,26 +57,27 @@ export default function MenuAgrup() {
     <div>
       <Header2 />
       <input
-        placeholder="Ingresa el nombre de la agrupacion"
+        placeholder="Ingresa el nombre del juego"
         className="search"
         onChange={(e) => setSearchQuery(e.target.value)}
       ></input>
       <ul className="group_card">
         {filteredAgrup.map((item) => (
-          <div className="card" key={item.id} style={{ listStyleType: "none" }}>
-            <div className="title">
+          <li className="card" key={item.id} style={{ listStyleType: "none" }}>
+            <div className="card_title">
               <strong>{item.nombre}</strong>
-              <button
-                className="btn_info"
-                key={item.id}
-                onClick={() => handleAgrupSelection(item)}
-              >
-                VER MAS
-              </button>
             </div>
 
+            <button
+              className="btn_info"
+              key={item.id}
+              onClick={() => handleAgrupSelection(item)}
+            >
+              VER MAS
+            </button>
+
             <Agrupacion info={selectedAgrup} />
-          </div>
+          </li>
         ))}
       </ul>
       <Footer2></Footer2>
