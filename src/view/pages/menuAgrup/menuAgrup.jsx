@@ -53,6 +53,7 @@ export default function MenuAgrup() {
     return <div>Loading...</div>;
   }
 
+
   return (
     <div>
       <Header2 />

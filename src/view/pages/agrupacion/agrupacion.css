@@ -38,6 +38,7 @@
     margin: 30px;
 }
 
+
 .btns_{
     width: max-content;
     padding: 13px;
@@ -49,6 +50,13 @@
     background-color: #FD8204;
     color: #FFFF;
     cursor: pointer;
+}
+
+.btns_.unido{
+background-color: #A9A9A9;
+border: 2px solid #FD8204 ;
+
+
 }
 .icon_i{
     width: 40px;
