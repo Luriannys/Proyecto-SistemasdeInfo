@@ -14,17 +14,17 @@ const Header2 = () => {
   };
 
   return (
-    <div className='bar'>
-        <img src={logo} alt="Logo Unimet" className="logo_" />
-        <div className='perfil'>
-        <div className='icon'><img src={person_icon}  alt='icono'/></div>
-        <button onClick={toggleMenu} className='btn_expand' type="button"> <img src={expand_more}/> </button>
+    <div className={style.bar}>
+        <img src={logo} alt="Logo Unimet" className={style.logo_} />
+        <div className={style.perfil}>
+        <div className={style.icon}><img src={person_icon}  alt='icono'/></div>
+        <button onClick={toggleMenu} className={style.btn_expand} type="button"> <img src={expand_more}/> </button>
     </div>
     {isOpen && (
-        <div className='menu'>
-          <Link to='/Perfil' className='l'><button className='btn_p'>Mi cuenta</button></Link>
-          <Link to='/donaciones' className='l'><button className='btn_p'>Realizar Donación</button></Link>
-          <Link className='l'><button className='btn_p'>Cerrar Sesion</button></Link>
+        <div className={style.menu}>
+          <Link to='/Perfil' className={style.l}><button className={style.btn_p}>Mi cuenta</button></Link>
+          <Link to='/donaciones' className={style.l}><button className={style.btn_p}>Realizar Donación</button></Link>
+          <Link className={style.l}><button className={style.btn_p} >Cerrar Sesión</button></Link>
         </div>)}
 
 
