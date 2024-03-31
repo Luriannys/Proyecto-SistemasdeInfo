@@ -17,4 +17,8 @@ export const ProtectedRoutePerfil = ({ children, user}) => {
     return user ? children : <Navigate to="/"></Navigate>;
 };
 
+export const ProtectedRouteDonaciones = ({ children, user}) => {
+    return user ? children : <Navigate to="/"></Navigate>;
+};
+
 

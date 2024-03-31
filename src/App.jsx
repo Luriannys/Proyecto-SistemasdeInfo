@@ -9,14 +9,14 @@ import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
 import Perfil from "./view/pages/Perfil/Perfil";
 import Donaciones from "./view/pages/donaciones/donaciones";
 
-import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil} from "./view/components/protectedRoutes/ProtectedRoute";
+import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil, ProtectedRouteDonaciones} from "./view/components/protectedRoutes/ProtectedRoute";
 import {onAuthStateChanged} from "firebase/auth"
 import {useEffect, useState} from "react"
 import { auth } from "./controller/services/firebase";
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, (user) => {
