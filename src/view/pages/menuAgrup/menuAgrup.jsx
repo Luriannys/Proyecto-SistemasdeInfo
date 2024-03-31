@@ -58,7 +58,7 @@ export default function MenuAgrup() {
     <div>
       <Header2 />
       <input
-        placeholder="Ingresa el nombre del juego"
+        placeholder="Ingresa el nombre de la agrupación"
         className="search"
         onChange={(e) => setSearchQuery(e.target.value)}
       ></input>

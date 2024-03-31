@@ -33,6 +33,15 @@ export default function Login() {
             console.error(error);
           });
       }
+
+      const handleGoogleLogin = async () => {
+        try {
+          await authService.signUpWithGoogle();
+          navigate("/menuAgrup")
+        } catch (error) {
+          console.error('Error signing in with Google:', error);
+        }
+      };
     
     
     
@@ -63,7 +72,7 @@ export default function Login() {
                         <button type="submit" className={style.send}>Login</button>
                         </form>
                         <hr></hr>
-                        <button type="button" className={style.google} onClick={() => authService.signUpWithGoogle()}><img src={google_icon} alt="icon" /><p>Acceder con Google</p></button>
+                        <button type="button" className={style.google} onClick={handleGoogleLogin}><img src={google_icon} alt="icon" /><p>Acceder con Google</p></button>
                         <p className={style.register}>¿No estás registrado? <Link to="/register">Crear Cuenta</Link></p>
                     </div>
                 </div>
