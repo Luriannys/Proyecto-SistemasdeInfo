@@ -1,19 +1,12 @@
-import { Navigate } from "react-router-dom"
+import React from 'react';
+import { Navigate } from 'react-router-dom';
 
-export const ProtectedRouteDash = ({ children, user}) => {
-    return user ? children : <Navigate to="/"></Navigate>;
-};
+export const ProtectedRoute = ({ currentUser, children }) => {
+  if (!currentUser) {
+    return <Navigate to="/" />;
+  }
 
-export const ProtectedRouteMenu = ({ children, user}) => {
-    return user ? children : <Navigate to="/"></Navigate>;
-};
-
-export const ProtectedRouteAgrupacion = ({ children, user}) => {
-    return user ? children : <Navigate to="/"></Navigate>;
-};
-
-export const ProtectedRoutePerfil = ({ children, user}) => {
-    return user ? children : <Navigate to="/"></Navigate>;
+  return children;
 };
 
 

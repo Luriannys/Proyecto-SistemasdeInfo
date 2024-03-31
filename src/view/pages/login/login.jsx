@@ -14,6 +14,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../../../controller/services/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 
+
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

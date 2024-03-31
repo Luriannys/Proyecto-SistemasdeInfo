@@ -9,25 +9,19 @@ import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
 import  Perfil  from "./view/pages/Perfil/Perfil";
 import  Donaciones  from "./view/pages/donaciones/donaciones";
 
-import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil} from "./view/components/protectedRoutes/ProtectedRoute";
+import { ProtectedRoute } from "./view/components/protectedRoutes/ProtectedRoute";
 import {onAuthStateChanged} from "firebase/auth"
 import {useEffect, useState} from "react"
 import { auth } from "./controller/services/firebase";
 
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if(user) {
-          setUser(user);
-          return;
-        }
-
-        setUser(null);
-      });
-      return () => unsubscribe();
+    onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+    });
   }, []);
 
   return (
@@ -35,35 +29,35 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Landing />}></Route>
-          <Route exact path="/login" element={<Login user={user}/>}></Route>
+          <Route exact path="/login" element={<Login currentUser={currentUser}/>}></Route>
 
-          <Route exact path="/register" element={<Register user={user}/>}></Route>
+          <Route exact path="/register" element={<Register currentUser={currentUser}/>}></Route>
         
           <Route exact path="/dashboard" element={
-          <ProtectedRouteDash user={user}>
+          <ProtectedRoute currentUser={currentUser}>
           <Dashboard />
-          </ProtectedRouteDash>
+          </ProtectedRoute>
         }
         ></Route>
 
           <Route exact path="/menuAgrup" element={
-          <ProtectedRouteMenu user={user}>
+          <ProtectedRoute currentUser={currentUser}>
           <MenuAgrup />
-          </ProtectedRouteMenu>
+          </ProtectedRoute>
           }
           ></Route>
 
           <Route exact path="/agrupacion/:id" element={
-          <ProtectedRouteAgrupacion user={user}>
+          <ProtectedRoute currentUser={currentUser}>
           <Agrupacion />
-          </ProtectedRouteAgrupacion>
+          </ProtectedRoute>
           }
           ></Route>
 
           <Route exact path='/Perfil' element={
-          <ProtectedRoutePerfil user={user}>
+          <ProtectedRoute currentUser={currentUser}>
           <Perfil/>
-          </ProtectedRoutePerfil>
+          </ProtectedRoute>
           }
           ></Route>
         </Routes>
