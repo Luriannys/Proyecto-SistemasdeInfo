@@ -58,22 +58,22 @@ export default function Donaciones() {
     return (
         <div>
             <Header2 />
-            <div className="imagen"> 
-            <img className='foto' src={university}></img>
-            <h1 className="title">Donaciones</h1>
+            <div className="imagen">
+                <img className='foto' src={university}></img>
+                <h1 className="title">Donaciones</h1>
             </div>
-            <div className="texto">
-            <p>Tu apoyo es vital para nuestras agrupaciones estudiantiles. Con tus donaciones, impulsamos programas y servicios que enriquecen la experiencia de nuestra comunidad unimetana. Cada aporte, sin importar su magnitud, tiene un impacto significativo. ¡Únete y haz la diferencia hoy mismo!</p>
-                <div style={{ margin:'10px' }} className="donaciones_form">
+            <div className="contenedor_donaciones">
+                <p className="texto">Tu apoyo es vital para nuestras agrupaciones estudiantiles. Con tus donaciones, impulsamos programas y servicios que enriquecen la experiencia de nuestra comunidad unimetana. Cada aporte, sin importar su magnitud, tiene un impacto significativo. ¡Únete y haz la diferencia hoy mismo!</p>
+                <div style={{ margin: '10px' }} className="donaciones_form">
                     <CustomInput label={"Agrupación a Donar"} preffixIcon={<img src={billete_icon} alt="icon" />} type={'text'} placeholder={"Indica la agrupación a colaborar..."} onChange={(e) => {
-                    setSelectedAgrupacion(e.target.value);
+                        setSelectedAgrupacion(e.target.value);
                     }}>
-                    <select>
-                    <option value="">Selecciona una agrupación</option>
-                    {agrupaciones.map((agrupacion, index) => (
-                        <option key={index} value={agrupacion}>{agrupacion}</option>
-                    ))}
-                    </select>
+                        <select>
+                            <option value="">Selecciona una agrupación</option>
+                            {agrupaciones.map((agrupacion, index) => (
+                                <option key={index} value={agrupacion}>{agrupacion}</option>
+                            ))}
+                        </select>
                     </CustomInput>
                     <CustomInput label={"Correo Electrónico"} preffixIcon={<img src={email_icon} alt="icon" />} type={'email'} placeholder={"Ingresa tu correo electrónico..."} onChange={(e) => {
                         setEmail(e.target.value);

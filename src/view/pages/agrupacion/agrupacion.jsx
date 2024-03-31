@@ -8,10 +8,6 @@ import email from '../../assets/email.svg';
 import {
   doc,
   getDoc,
-  collection,
-  getDocs,
-  query,
-  where,
 } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -58,17 +54,14 @@ export default function Agrupacion() {
       <div style={{ marginBottom: '15px' }}>
       <div style={{ marginBottom: '15px'}}>
       <strong>Contáctanos</strong>
-<<<<<<< Updated upstream
-=======
       </div>
->>>>>>> Stashed changes
         <div className="contact_us"><img className='icon_i' src={ig}/><p>{agrupacion.instagram}</p></div>
         <div className="contact_us"><img className='icon_i' src={email}/><p>{agrupacion.email}</p></div>
       </div>
       <span style={{ color: 'black', fontSize: '40px', textAlign:'center' }}>Mira lo que <span style={{ color: '#FD8204', fontSize: '40px', textAlign:'center'}}>otros opinan</span></span>
       <ul className="testimonies">
         {agrupacion.testimonios.map((item) => (
-          <li style={{listStyleType: 'none'}} className="feedback_box">
+            <li key={item} style={{ listStyleType: 'none' }} className="feedback_box">
             <span >{item}</span>
           </li>
         ))}

@@ -74,6 +74,10 @@ button.send {
     height: 100%;
     display: block;
 }
+.error_message{
+    color: red;
+    margin-top: 15px;
+}
 
 @media screen and (max-width: 1000px) {
     .container {
