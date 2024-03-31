@@ -1,4 +1,4 @@
-import { db } from './firebase';
+import { db } from '../controller/services/firebase.js';
 class user extends admin{
     constructor(name,email,password,phone,isadmin){
         //llamado a clase de usuario
@@ -45,7 +45,7 @@ class user extends admin{
         const FirebaseCatt = db.collection("Categorías");
         //Creacion del documento de Categoría
         await FirebaseCatt.add({
-            Nombre: Name,
+            nombre: Name,
             Groups: null
         });
     }
@@ -61,5 +61,3 @@ class user extends admin{
         })
     }
 }
-Admin = new admin();
-Admin.createGroup(null,"Aaaaaaaaaaa","@ajajaj","","@","PepitoAgrupa","0414");
