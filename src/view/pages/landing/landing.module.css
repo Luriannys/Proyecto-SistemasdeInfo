@@ -126,3 +126,60 @@ p.about_description {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+@media screen and (max-width: 1300px) {
+    .about {
+        width: 88%;
+    }
+
+    .sectionImage {
+        width: 48%;
+        height: auto;
+        aspect-ratio: 3/2;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    h1.hero_text {
+        font-size: 60px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    h1.hero_text {
+        font-size: 50px;
+    }
+
+    .mision,
+    .objective {
+        flex-direction: column;
+    }
+
+    .vision {
+        flex-direction: column-reverse;
+    }
+
+    .sectionImage {
+        width: 100%;
+        flex-shrink: 0;
+        object-fit: cover;
+    }
+
+    .mision>.about_text {
+        margin-right: 0;
+    }
+
+    .objective>.about_text {
+        margin-right: 0;
+    }
+
+    .vision>.about_text {
+        margin-left: 0;
+    }
+
+    .vision>.about_text,
+    .mision>.about_text,
+    .objective>.about_text {
+        margin: 20px 0;
+    }
+}
