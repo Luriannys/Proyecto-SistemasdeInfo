@@ -18,7 +18,7 @@
 }
 
 /*Ocultar ojo de password*/
-::-ms-reveal{
+::-ms-reveal {
     display: none;
 }
 
@@ -142,7 +142,7 @@ hr {
 .error_message {
     color: red;
     margin-top: 10px;
-  }
+}
 
 @media screen and (max-width: 1000px) {
     .container {
