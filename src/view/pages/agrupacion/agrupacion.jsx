@@ -43,18 +43,19 @@ export default function Agrupacion() {
       Set_unido(!unido)
     }
 */
+
+
   return (
     <div>
       <Header2 />
-      <div className="imagen_group">
-        <img className='foto' src={saman}></img>
+      <div className="imagen_group" style={{ backgroundImage: `url(${agrupacion.imagen})`}}>
         <h1 className="title_g">{agrupacion.nombre}</h1>
       </div>
       <div className="Info_card">
       <p style={{ textAlign: 'justify' }}>{agrupacion.descripcion}</p>
         <div className="btns">
           <Link to="/donaciones"><button className="btns_"> <strong>Donar </strong></button></Link>
-          <button className="btns_"> <strong>Agregar Testimonio</strong> </button>
+          <Link to='/testimonio'><button className="btns_" > <strong>Agregar Testimonio</strong> </button></Link>
           <button className="btns_"> <strong> Unirse</strong></button>
         </div>
         <div style={{ marginBottom: '15px' }}>
