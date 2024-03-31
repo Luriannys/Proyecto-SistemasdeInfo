@@ -1,6 +1,8 @@
+
 .bar {
   position: relative;
   display: flex;
+  flex-direction: row;
   width: 100%;
   height: 90px;
   background-color: rgba(47, 72, 88, 1);
@@ -21,7 +23,6 @@
   right: 10%;
   top: 107%;
 }
-
 .btn_p {
   background-color: transparent;
   border: none;
@@ -29,31 +30,30 @@
   color: #ffffff;
   cursor: pointer;
 }
-
-.l {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.l{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    
+    font-weight: bold;
 }
-
-.logo_ {
-  width: 139.6px;
-  height: 59.4px;
-  margin-left: 184.86px;
+.logo {
+  width: 0 auto;
+  height: auto;
+  margin-left: 18px;
   margin-top: 18px;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom: 18px;
 }
 
 .perfil {
   display: flex;
-  flex-direction: row;
-  margin-right: 184.86px;
-  margin-top: 22px;
-  margin-bottom: 28px;
-}
+  width: fit-content;
+  height: 0 auto;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
 
+}
 .icon {
   display: flex;
   background-color: #ffffff;
@@ -65,26 +65,29 @@
   align-items: center;
 }
 
+
 .btn_expand {
-  width: 30px;
-  height: 30px;
   display: flex;
+  width: fit-content;
+  height: 0 auto;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   border-radius: 100px;
   border: transparent;
   cursor: pointer;
-  padding-top: 8px;
 }
 
 @media (max-width: 1148px) {
-  .logo_ {
+  .logo_{
     margin-left: 0px;
   }
 
 }
 
 @media (max-width: 923px) {
-  .perfil {
+  .perfil{
     margin-right: 0px;
   }
 
