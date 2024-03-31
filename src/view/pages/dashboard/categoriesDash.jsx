@@ -1,4 +1,5 @@
-import style  from "./menuAgrup.module.css";
+import key from "./dashboard";
+import style  from "./categoriesDash.module.css";
 import Header2 from "../../components/Header2/Header2";
 import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
@@ -14,7 +15,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Agrupacion from "../agrupacion/agrupacion";
 
-export default function MenuAgrup() {
+export default function CategoriesDash() {
   const [items, setItems] = useState([]);
   const [selectedAgrup, setSelectedAgrup] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,13 +24,15 @@ export default function MenuAgrup() {
 
   const handleClick = () => {
     setAgrupacion(dataAgrup);
-    navigate("/agrupacion");
+    navigate("/category/:nombre");
   };
+
 
   useEffect(() => {
     const fetchItems = async () => {
       const itemsCollection = collection(db, "Agrupaciones");
-      const itemsSnapshot = await getDocs(itemsCollection);
+      const q = query(itemsCollection, where("category", "==", "Aire Libre"));
+      const itemsSnapshot = await getDocs(q);
       const itemsList = itemsSnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -37,9 +40,9 @@ export default function MenuAgrup() {
       setItems(itemsList);
       console.log(itemsList);
     };
-
+  
     fetchItems();
-  }, []);
+  }, []); 
 
   const handleAgrupSelection = (item) => {
     navigate(`/agrupacion/${item.id}`);
