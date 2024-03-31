@@ -10,7 +10,7 @@ export default function Footer() {
                 <img src={logo} alt="Logo Unimet" className="logoFooter" />
                 </Link>
                 <div className="navigation-footer">
-                    <h3 className="footer-title">Contáctanos</h3>
+                    <h3 className="footer-title">Contáctenos</h3>
                     <ul className="nav-footer">
                         <div className="icon-text">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

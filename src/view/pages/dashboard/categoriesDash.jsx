@@ -1,8 +1,8 @@
-import style  from "./menuAgrup.module.css";
+import key from "./dashboard";
+import style  from "./categoriesDash.module.css";
 import Header2 from "../../components/Header2/Header2";
 import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
-import mas from '../../assets/mas.svg';
 import {
   doc,
   getDoc,
@@ -12,10 +12,10 @@ import {
   where,
 } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Agrupacion from "../agrupacion/agrupacion";
 
-export default function MenuAgrup() {
+export default function CategoriesDash() {
   const [items, setItems] = useState([]);
   const [selectedAgrup, setSelectedAgrup] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -24,13 +24,15 @@ export default function MenuAgrup() {
 
   const handleClick = () => {
     setAgrupacion(dataAgrup);
-    navigate("/agrupacion");
+    navigate("/category/:nombre");
   };
+
 
   useEffect(() => {
     const fetchItems = async () => {
       const itemsCollection = collection(db, "Agrupaciones");
-      const itemsSnapshot = await getDocs(itemsCollection);
+      const q = query(itemsCollection, where("category", "==", "Aire Libre"));
+      const itemsSnapshot = await getDocs(q);
       const itemsList = itemsSnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -38,9 +40,9 @@ export default function MenuAgrup() {
       setItems(itemsList);
       console.log(itemsList);
     };
-
+  
     fetchItems();
-  }, []);
+  }, []); 
 
   const handleAgrupSelection = (item) => {
     navigate(`/agrupacion/${item.id}`);
@@ -54,9 +56,6 @@ export default function MenuAgrup() {
     return <div>Loading...</div>;
   }
 
-  const administrador =true;
-
-
   return (
     <div>
       <Header2 />
@@ -67,27 +66,22 @@ export default function MenuAgrup() {
       ></input>
       <ul className={style.group_card}>
         {filteredAgrup.map((item) => (
-          <li className="card" key={item.id} style={{ listStyleType: "none", backgroundImage: `url(${item.imagen})`}}>
-            <div className="card_title" >
+          <li className={style.card} key={item.id} style={{ listStyleType: "none" }}>
+            <div className={style.title}>
               <strong>{item.nombre}</strong>
+              <button
+                className={style.btn_info}
+                key={item.id}
+                onClick={() => handleAgrupSelection(item)}
+              >
+                VER MAS
+              </button>
             </div>
-
-            <button
-              className="btn_info"
-              key={item.id}
-              onClick={() => handleAgrupSelection(item)}
-            >
-              VER MAS
-            </button>
 
             <Agrupacion info={selectedAgrup} />
           </li>
         ))}
       </ul>
-      {administrador && (
-              <Link to= '/New_Group'><button className="btn_newG"><img className="mas" src={mas}/></button></Link>
-            )}
-      <Footer2></Footer2>
     </div>
   );
 }

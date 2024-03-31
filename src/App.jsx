@@ -6,14 +6,16 @@ import Landing from "./view/pages/landing/landing";
 import Dashboard from "./view/pages/dashboard/dashboard";
 import Agrupacion from "./view/pages/agrupacion/agrupacion";
 import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
-import  Perfil  from "./view/pages/Perfil/Perfil";
-import  Donaciones  from "./view/pages/donaciones/donaciones";
+import Perfil from "./view/pages/Perfil/Perfil";
+import CategoriesDash from "./view/pages/dashboard/categoriesDash";
+import NewCategory from "./view/pages/dashboard/newCategory"
+import Donaciones from "./view/pages/donaciones/donaciones";
 import  Testimonio  from "./view/pages/Testimonio/Testimonio";
 import New_Group from "./view/pages/New_Group/New_Group";
 
-import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil, ProtectedRouteDonaciones } from "./view/components/protectedRoutes/ProtectedRoute";
-import { onAuthStateChanged } from "firebase/auth"
-import { useEffect, useState } from "react"
+import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil, ProtectedRouteDonaciones  } from "./view/components/protectedRoutes/ProtectedRoute";
+import {  onAuthStateChanged  } from "firebase/auth"
+import {  useEffect, useState  } from "react"
 import { auth } from "./controller/services/firebase";
 
 
@@ -41,10 +43,25 @@ function App() {
 
           <Route exact path="/register" element={<Register user={user} />}></Route>
 
-          <Route exact path="/dashboard" element={
-            <ProtectedRouteDash user={user}>
-              <Dashboard />
-            </ProtectedRouteDash>
+          <Route exact path="/dashboard" element={<Dashboard />
+            // <ProtectedRouteDash user={user}>
+
+            // </ProtectedRouteDash>
+          }
+          ></Route>
+
+          <Route exact path="/newCategory" element={<NewCategory />
+            // <ProtectedRouteDash user={user}>
+
+            // </ProtectedRouteDash>
+          }
+          ></Route>
+
+          <Route exact path="/dashboard/:nombre" element={
+            <CategoriesDash />
+            // <ProtectedRouteDash user={user}>
+
+            // </ProtectedRouteDash>
           }
           ></Route>
 
@@ -56,9 +73,9 @@ function App() {
           ></Route>
 
           <Route exact path="/agrupacion/:id" element={
-            <ProtectedRouteAgrupacion user={user}>
-              <Agrupacion />
-            </ProtectedRouteAgrupacion>
+              <ProtectedRouteAgrupacion user={user}>
+                  <Agrupacion />
+              </ProtectedRouteAgrupacion>
           }
           ></Route>
 
@@ -70,9 +87,9 @@ function App() {
           ></Route>
 
           <Route exact path='/Perfil' element={
-            <ProtectedRoutePerfil user={user}>
-              <Perfil />
-            </ProtectedRoutePerfil>
+              <ProtectedRoutePerfil user={user}>
+                  <Perfil  />
+              </ProtectedRoutePerfil>
           }
           ></Route>
           <Route exact path='/testimonio' element={<Testimonio />}></Route>
