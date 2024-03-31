@@ -64,8 +64,8 @@ export default function MenuAgrup() {
       ></input>
       <ul className="group_card">
         {filteredAgrup.map((item) => (
-          <li className="card" key={item.id} style={{ listStyleType: "none" }}>
-            <div className="card_title">
+          <li className="card" key={item.id} style={{ listStyleType: "none", backgroundImage: `url(${item.imagen})`}}>
+            <div className="card_title" >
               <strong>{item.nombre}</strong>
             </div>
 
