@@ -53,6 +53,7 @@ export default function MenuAgrup() {
     return <div>Loading...</div>;
   }
 
+
   return (
     <div>
       <Header2 />
@@ -64,16 +65,17 @@ export default function MenuAgrup() {
       <ul className="group_card">
         {filteredAgrup.map((item) => (
           <li className="card" key={item.id} style={{ listStyleType: "none" }}>
-            <div className="title">
+            <div className="card_title">
               <strong>{item.nombre}</strong>
-              <button
-                className="btn_info"
-                key={item.id}
-                onClick={() => handleAgrupSelection(item)}
-              >
-                VER MAS
-              </button>
             </div>
+
+            <button
+              className="btn_info"
+              key={item.id}
+              onClick={() => handleAgrupSelection(item)}
+            >
+              VER MAS
+            </button>
 
             <Agrupacion info={selectedAgrup} />
           </li>
