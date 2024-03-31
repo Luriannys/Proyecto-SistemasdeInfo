@@ -8,6 +8,7 @@ class Testimony{
     Write(Text,TGroup){
         let Textstring="";
         Textstring=(Textstring+Text);
+        this.comment=Textstring;
     }
     Rate(Value,TGroup){
         TGroup.Prate=((TGroup.Prate+Value)/2);
