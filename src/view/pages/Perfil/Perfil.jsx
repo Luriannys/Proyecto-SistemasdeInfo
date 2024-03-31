@@ -1,9 +1,8 @@
 import './Perfil.css';
 import Header2 from '../../components/Header2/Header2'
+import Footer2 from "../../components/footer2/footer2";
 import person_icon from '../../assets/person.svg';
 import React from 'react'
-
-
 
 export default function Perfil() {
   return (
@@ -19,6 +18,7 @@ export default function Perfil() {
             <h5>Fecha de Nacimiento: </h5>
             <h5>Agrupaciones a las que pertenezco: </h5>
         </div>
+        
         <div className='User_edit'>
             <div className='c'>
             <label>Nombre 
@@ -41,16 +41,11 @@ export default function Perfil() {
             <label>Carrera
                 <input className= 'input' type='text' />
             </label>
-            
             </div>
             <button className='btn_edit'> Actualizar </button>
-            </div>
-
-        
-
-
+            </div>    
     </div>
-      
+    <Footer2></Footer2>
     </>
   )
 }

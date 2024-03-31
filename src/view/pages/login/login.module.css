@@ -1,7 +1,7 @@
 .Login {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
@@ -13,8 +13,13 @@
     padding: 25px;
 }
 
-.login-form {
+.login_form {
     width: 400px;
+}
+
+/*Ocultar ojo de password*/
+::-ms-reveal{
+    display: none;
 }
 
 .title {
@@ -126,12 +131,18 @@ hr {
     flex-basis: 50%;
 }
 
-.saman-image {
+.saman_image {
     object-fit: cover;
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     display: block;
 }
+
+
+.error_message {
+    color: red;
+    margin-top: 10px;
+  }
 
 @media screen and (max-width: 1000px) {
     .container {
@@ -148,7 +159,7 @@ hr {
         flex-basis: 100%;
     }
 
-    .login-form {
+    .login_form {
         width: 100% !important;
     }
 

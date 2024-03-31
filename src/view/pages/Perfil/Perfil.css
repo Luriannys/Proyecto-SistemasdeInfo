@@ -41,16 +41,16 @@
 }
 
 .User_edit{
-    margin-left: 15px;
+    margin-left: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    position: relative;
     border-radius: 5px;
     border: 1px solid #A9A9A9;
     padding: 20px;
     background-color: #E9E9E9;
-    padding: 60pxpx;
-    width: 740px;
+    width: 820px;
     height: 368px;
 
 
@@ -59,7 +59,9 @@
 .c{
     display: flex;
     flex-direction: column;
-    margin:20px
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
 
 }
 
@@ -83,10 +85,14 @@
     font-weight: bold;
     padding: 12px;
     border-radius: 10px;
-    border:none;
+    border: none;
     background-color: #FD8204;
     cursor: pointer;
+    margin-top: 20px; 
 }
+
+
+
 
 @media (max-width: 1101px) {
     .User_cont{

@@ -1,7 +1,7 @@
 .Register {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.register-form {
+.register_form {
     width: 400px;
 
 }
@@ -68,11 +68,15 @@ button.send {
     flex-basis: 50%;
 }
 
-.university-image {
+.university_image {
     object-fit: cover;
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     display: block;
+}
+.error_message{
+    color: red;
+    margin-top: 15px;
 }
 
 @media screen and (max-width: 1000px) {
