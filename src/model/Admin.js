@@ -1,5 +1,3 @@
-import { Group } from "./Group"
-import { Category } from "./Category";
 import { db } from './firebase';
 class user extends admin{
     constructor(name,email,password,phone,isadmin){
@@ -9,16 +7,22 @@ class user extends admin{
     //Crear Agrupacion
     async createGroup(Cat,Desc,Email,img,insta,Name,tlf){
         const FirebaseAgg = db.collection("Agrupaciones");
+        const Today = new Date();
+        const TodaysYear = Today.getFullYear();
         //Creacion del documento de agrupacion
         await FirebaseAgg.add({
             category: Cat,
+            testimonios: null,
+            Contribuidores: null,
+            CrationYear: TodaysYear,
             descripcion: Desc,
             email: Email,
             imagen: img,
             instagram: insta,
+            Members: null,
             nombre: Name,
-            telefono: tlf,
-            testimonios: null,
+            PromRaiting: 0,
+            telefono: tlf
         });
     }
     async deleteGroup(GroupId){
@@ -34,14 +38,15 @@ class user extends admin{
             imagen: img,
             instagram: insta,
             nombre: Name,
-            telefono: tlf,
+            telefono: tlf
         });
     }
     async createCategory(Name){
         const FirebaseCatt = db.collection("Categorías");
         //Creacion del documento de Categoría
         await FirebaseCatt.add({
-            nombre: Name
+            Nombre: Name,
+            Groups: null
         });
     }
     async deleteCategory(CatId){
@@ -52,7 +57,9 @@ class user extends admin{
     async editCategory(CatId,newname){
         const FirebaseCatt = db.collection("Categorías");
         await FirebaseCatt.doc(CatId).set({
-            nombre: newname
+            Nombre: newname
         })
     }
 }
+Admin = new admin();
+Admin.createGroup(null,"Aaaaaaaaaaa","@ajajaj","","@","PepitoAgrupa","0414");
