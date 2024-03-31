@@ -2,6 +2,7 @@ import "./menuAgrup.css";
 import Header2 from "../../components/Header2/Header2";
 import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
+import mas from '../../assets/mas.svg';
 import {
   doc,
   getDoc,
@@ -11,7 +12,7 @@ import {
   where,
 } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import Agrupacion from "../agrupacion/agrupacion";
 
 export default function MenuAgrup() {
@@ -53,6 +54,8 @@ export default function MenuAgrup() {
     return <div>Loading...</div>;
   }
 
+  const administrador =true;
+
 
   return (
     <div>
@@ -81,6 +84,9 @@ export default function MenuAgrup() {
           </li>
         ))}
       </ul>
+      {administrador && (
+              <Link to= '/New_Group'><button className="btn_newG"><img className="mas" src={mas}/></button></Link>
+            )}
       <Footer2></Footer2>
     </div>
   );

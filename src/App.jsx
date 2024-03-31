@@ -9,6 +9,7 @@ import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
 import  Perfil  from "./view/pages/Perfil/Perfil";
 import  Donaciones  from "./view/pages/donaciones/donaciones";
 import  Testimonio  from "./view/pages/Testimonio/Testimonio";
+import New_Group from "./view/pages/New_Group/New_Group";
 
 import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil, ProtectedRouteDonaciones } from "./view/components/protectedRoutes/ProtectedRoute";
 import { onAuthStateChanged } from "firebase/auth"
@@ -75,6 +76,7 @@ function App() {
           }
           ></Route>
           <Route exact path='/testimonio' element={<Testimonio />}></Route>
+          <Route exact path='/New_Group' element={<New_Group/>}></Route>
         </Routes>
       </Router>
     </>
