@@ -10,12 +10,12 @@ import { Link } from 'react-router-dom';
 const Header2 = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
-    setIsOpen(!isOpen);};
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className='bar'>
         <img src={logo} alt="Logo Unimet" className="logo_" />
-        
         <div className='perfil'>
         <div className='icon'><img src={person_icon}  alt='icono'/></div>
         <button onClick={toggleMenu} className='btn_expand' type="button"> <img src={expand_more}/> </button>
@@ -29,7 +29,7 @@ const Header2 = () => {
         
 
     </div>
-  )
-}
+  );
+};
 
 export default Header2;
