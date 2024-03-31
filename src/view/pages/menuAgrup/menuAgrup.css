@@ -17,11 +17,18 @@
     padding: 45px;
     border-radius: 20px;
     justify-content: center;
+    
 
 }
 
 .card_title {
+  
+    font-size: 35px;
     color: #FFFF;
+    text-align: center;
+    margin-top: 41px;
+    display: flex;
+    flex-direction: column;
 }
 
 .btn_info {
@@ -30,6 +37,8 @@
     color: #FFFF;
     font-weight: bold;
     cursor: pointer;
+    margin-left: 30%;
+    
 }
 
 
