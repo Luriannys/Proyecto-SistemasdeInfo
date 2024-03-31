@@ -9,7 +9,7 @@ class user{
 
 }
 
-class user extends student{
+class student extends user{
     constructor(name,email,password,phone){
         //llamado a clase de usuario
         super(name,email,password,phone,false);
@@ -17,3 +17,5 @@ class user extends student{
         this.belongsto=[];
     }
 }
+
+export default user;

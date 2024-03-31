@@ -1,16 +1,18 @@
 import { db } from '../controller/services/firebase.js';
-class user extends admin{
-    constructor(name,email,password,phone,isadmin){
+import user from "./User.js"
+import { doc,collection, addDoc, getDoc,deleteDoc,updateDoc, setDoc } from "firebase/firestore";
+class admin extends user{
+    constructor(name,email,password,phone){
         //llamado a clase de usuario
         super(name,email,password,phone,true);
     }
     //Crear Agrupacion
     async createGroup(Cat,Desc,Email,img,insta,Name,tlf){
-        const FirebaseAgg = db.collection("Agrupaciones");
+        const FirebaseAgg = collection(db, "Agrupaciones");
         const Today = new Date();
         const TodaysYear = Today.getFullYear();
         //Creacion del documento de agrupacion
-        await FirebaseAgg.add({
+        await addDoc(FirebaseAgg,{
             category: Cat,
             testimonios: null,
             Contribuidores: null,
@@ -26,12 +28,13 @@ class user extends admin{
         });
     }
     async deleteGroup(GroupId){
-        const FirebaseAgg = db.collection("Agrupaciones");
-        await FirebaseAgg.doc(GroupId).delete();
+        const FirebaseAgg = collection(db, "Agrupaciones");
+        const selectedgroup = doc(db,"Agrupaciones",GroupId);
+        await deleteDoc(selectedgroup);
     }
     async editGroup(GroupId,Cat,Desc,Email,img,insta,Name,tlf){
-        const FirebaseAgg = db.collection("Agrupaciones");
-        FirebaseAgg.doc(GroupId).update({
+        const selectedgroup = doc(db,"Agrupaciones",GroupId);
+        update(selectedgroup,{
             category: Cat,
             descripcion: Desc,
             email: Email,
@@ -42,22 +45,24 @@ class user extends admin{
         });
     }
     async createCategory(Name){
-        const FirebaseCatt = db.collection("Categorías");
+        const FirebaseCatt = collection(db,"Categorías");
         //Creacion del documento de Categoría
-        await FirebaseCatt.add({
+        await addDoc(FirebaseAgg,{
             nombre: Name,
             Groups: null
         });
     }
     async deleteCategory(CatId){
-        const FirebaseCatt = db.collection("Categorías");
+        const selectedcat = doc(db,"Categorías",CatId)//CatId debe ser un string
         //Eliminar documento de Categoría
-        await FirebaseCatt.doc(CatId).delete();
+        await deleteDoc(selectedcat);
     }
     async editCategory(CatId,newname){
-        const FirebaseCatt = db.collection("Categorías");
-        await FirebaseCatt.doc(CatId).set({
-            Nombre: newname
+        const selectedcat = doc(db,"Categorías",CatId)
+        await setDoc(selectedcat,{
+            nombre: newname
         })
     }
 }
+
+export default admin;
