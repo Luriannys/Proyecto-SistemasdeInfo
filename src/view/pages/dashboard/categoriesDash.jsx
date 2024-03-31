@@ -82,7 +82,6 @@ export default function CategoriesDash() {
           </li>
         ))}
       </ul>
-      <Footer2></Footer2>
     </div>
   );
 }

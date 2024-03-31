@@ -8,6 +8,7 @@ import Agrupacion from "./view/pages/agrupacion/agrupacion";
 import MenuAgrup from "./view/pages/menuAgrup/menuAgrup";
 import Perfil from "./view/pages/Perfil/Perfil";
 import CategoriesDash from "./view/pages/dashboard/categoriesDash";
+import NewCategory from "./view/pages/dashboard/newCategory"
 import Donaciones from "./view/pages/donaciones/donaciones";
 
 import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil } from "./view/components/protectedRoutes/ProtectedRoute";
@@ -47,10 +48,17 @@ function App() {
           }
           ></Route>
 
+          <Route exact path="/newCategory" element={<NewCategory />
+            // <ProtectedRouteDash user={user}>
+
+            // </ProtectedRouteDash>
+          }
+          ></Route>
+
           <Route exact path="/dashboard/:nombre" element={
             <CategoriesDash />
             // <ProtectedRouteDash user={user}>
-              
+
             // </ProtectedRouteDash>
           }
           ></Route>

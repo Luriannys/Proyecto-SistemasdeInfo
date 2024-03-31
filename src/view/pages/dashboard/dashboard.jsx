@@ -1,6 +1,5 @@
 import style from "./dashboard.module.css";
 import Header2 from "../../components/Header2/Header2";
-import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
 import {
     doc,
@@ -13,6 +12,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Agrupacion from "../agrupacion/agrupacion";
+import plus from "../../assets/plus.svg"
 
 export default function Dashboard() {
     const [items, setItems] = useState([]);
@@ -46,6 +46,9 @@ export default function Dashboard() {
         navigate(`/dashboard/${itemCategory}`);
     };
     
+    const handleNewCategory = () =>{
+        navigate('/newCategory')
+    }
     
     const filteredAgrup = items.filter((category) =>
         category.nombre.toLowerCase().includes(searchQuery.toLocaleLowerCase())
@@ -59,10 +62,12 @@ export default function Dashboard() {
         <div>
             <Header2 />
             <input
-                placeholder="Ingresa el nombre de la categoría"
+                placeholder="Buscar categoría"
                 className={style.search}
                 onChange={(e) => setSearchQuery(e.target.value)}
             ></input>
+            <button className={style.btn_plus}
+            onClick={() => handleNewCategory()}> <img src={plus} alt="plus" /> </button>
             <ul className={style.category_card}>
                 {filteredAgrup.map((item) => (
                     <li className={style.card} key={item.nombre} style={{ listStyleType: "none" }}>
@@ -81,7 +86,6 @@ export default function Dashboard() {
                     </li>
                 ))}
             </ul>
-            <Footer2></Footer2>
         </div>
 
     );
