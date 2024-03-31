@@ -57,13 +57,13 @@ export default function MenuAgrup() {
     <div>
       <Header2 />
       <input
-        placeholder="Ingresa el nombre del juego"
+        placeholder="Ingresa el nombre de la agrupacion"
         className="search"
         onChange={(e) => setSearchQuery(e.target.value)}
       ></input>
       <ul className="group_card">
         {filteredAgrup.map((item) => (
-          <li className="card" key={item.id} style={{ listStyleType: "none" }}>
+          <div className="card" key={item.id} style={{ listStyleType: "none" }}>
             <div className="title">
               <strong>{item.nombre}</strong>
               <button
@@ -76,7 +76,7 @@ export default function MenuAgrup() {
             </div>
 
             <Agrupacion info={selectedAgrup} />
-          </li>
+          </div>
         ))}
       </ul>
       <Footer2></Footer2>

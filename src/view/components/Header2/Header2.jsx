@@ -15,7 +15,7 @@ const Header2 = () => {
   return (
     <div className='bar'>
         <img src={logo} alt="Logo Unimet" className="logo_" />
-        <input className='search' type='text' placeholder='Buscar Agrupaciones'/>
+        
         <div className='perfil'>
         <div className='icon'><img src={person_icon}  alt='icono'/></div>
         <button onClick={toggleMenu} className='btn_expand' type="button"> <img src={expand_more}/> </button>

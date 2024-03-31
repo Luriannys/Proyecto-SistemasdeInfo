@@ -5,10 +5,10 @@
     flex-direction: row;
     justify-content: center;
     
-    margin-top: 97px;
+    margin-top: 150px;
     margin-left: 160px;
     margin-right: 160px;
-    margin-bottom: 160px;
+    margin-bottom: 140px;
 
 }
 .t{
@@ -41,6 +41,7 @@
 }
 
 .User_edit{
+    z-index: 5%;
     margin-left: 50px;
     display: flex;
     flex-direction: row;
@@ -79,8 +80,8 @@
 
 .btn_edit{
     position: absolute;
-    right: 34%;
-    bottom: 20%;
+    right: 45%;
+    bottom: 5%;
     color: #FFF;
     font-weight: bold;
     padding: 12px;
@@ -106,7 +107,7 @@
     }
 
     .btn_edit{
-        bottom: -40%;
+        bottom: -20%;
         right: 45%;
 
     }
@@ -127,8 +128,8 @@
     }
 
     .btn_edit{
-        bottom: -85%;
-        right: 70%;
+        bottom: -10%;
+        right: 40%;
 
     }
 }
@@ -136,8 +137,8 @@
 
 @media (max-width: 604px) {
     .btn_edit{
-        bottom: -88%;
-        right: 48%;
+        bottom: -10%;
+        right: 40%;
 
     }
 
