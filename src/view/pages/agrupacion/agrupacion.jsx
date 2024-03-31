@@ -24,7 +24,7 @@ export default function Agrupacion() {
       if (docSnap.exists()) {
         setAgrupacion({ id: docSnap.id, ...docSnap.data() });
       } else {
-        console.log("no se encontro el documento");
+        console.log("no se encontró el documento");
       }
     };
 

@@ -52,3 +52,11 @@
 .icon-text {
     display: flex;
 }
+
+@media screen and (max-width =500px) {
+    .contact-footer{
+        font-size: 6px;
+        
+    }
+    
+}
