@@ -10,6 +10,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 25px;
+
 }
 
 .register_form {
@@ -25,6 +27,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin: 27px 0px;
 }
 
 .forgot {
@@ -75,6 +78,11 @@ button.send {
     display: block;
 }
 
+.error_message {
+    color: red;
+    margin-top: 15px;
+}
+
 @media screen and (max-width: 1000px) {
     .container {
         flex-basis: 100%;
@@ -90,7 +98,7 @@ button.send {
         flex-basis: 100%;
     }
 
-    .register-form {
+    .register_form {
         width: 100% !important;
     }
 

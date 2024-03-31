@@ -1,6 +1,6 @@
 import "./menuAgrup.css";
 import Header2 from "../../components/Header2/Header2";
-import Footer from "../../components/footer/footer";
+import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
 import {
   doc,
@@ -17,6 +17,7 @@ import Agrupacion from "../agrupacion/agrupacion";
 export default function MenuAgrup() {
   const [items, setItems] = useState([]);
   const [selectedAgrup, setSelectedAgrup] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navigate = useNavigate();
 
@@ -44,28 +45,43 @@ export default function MenuAgrup() {
     navigate(`/agrupacion/${item.id}`);
   };
 
+  const filteredAgrup = items.filter((agrupacion) =>
+    agrupacion.nombre.toLowerCase().includes(searchQuery.toLocaleLowerCase())
+  );
+
   if (!items || items.length === 0) {
     return <div>Loading...</div>;
   }
 
+
   return (
     <div>
-      <Header2/>
+      <Header2 />
+      <input
+        placeholder="Ingresa el nombre de la agrupación"
+        className="search"
+        onChange={(e) => setSearchQuery(e.target.value)}
+      ></input>
       <ul className="group_card">
-        {items.map((item) => (
-          <li className='card' key={item.id} style={{listStyleType: 'none'}}>
-            <div className="title">
+        {filteredAgrup.map((item) => (
+          <li className="card" key={item.id} style={{ listStyleType: "none", backgroundImage: `url(${item.imagen})`}}>
+            <div className="card_title" >
               <strong>{item.nombre}</strong>
-              <button className="btn_info" key={item.id} onClick={() => handleAgrupSelection(item)}>
+            </div>
+
+            <button
+              className="btn_info"
+              key={item.id}
+              onClick={() => handleAgrupSelection(item)}
+            >
               VER MAS
             </button>
-            </div>
-        
+
             <Agrupacion info={selectedAgrup} />
           </li>
         ))}
       </ul>
-      <Footer></Footer>
+      <Footer2></Footer2>
     </div>
   );
 }

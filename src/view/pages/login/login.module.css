@@ -17,6 +17,11 @@
     width: 400px;
 }
 
+/*Ocultar ojo de password*/
+::-ms-reveal {
+    display: none;
+}
+
 .title {
     width: 100%;
     text-align: left;
@@ -131,6 +136,12 @@ hr {
     width: 50vw;
     height: 100%;
     display: block;
+}
+
+
+.error_message {
+    color: red;
+    margin-top: 10px;
 }
 
 @media screen and (max-width: 1000px) {
