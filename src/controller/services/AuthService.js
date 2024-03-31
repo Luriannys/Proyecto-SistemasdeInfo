@@ -114,6 +114,51 @@ class AuthService {
         }
     }
 
+    getName = async () => {
+        const user = authService.getCurrentUser()?.uid;
+        console.log(user)
+
+        const docRef = doc(firestoreService.db, "users", user);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const userData = docSnap.data();
+            return userData.name;
+        } else {
+            console.log("No such document!");
+        }
+    }
+
+    getEmail = async () => {
+        const user = authService.getCurrentUser()?.uid;
+        console.log(user)
+
+        const docRef = doc(firestoreService.db, "users", user);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const userData = docSnap.data();
+            return userData.email;
+        } else {
+            console.log("No such document!");
+        }
+    }
+
+    getPhone = async () => {
+        const user = authService.getCurrentUser()?.uid;
+        console.log(user)
+
+        const docRef = doc(firestoreService.db, "users", user);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const userData = docSnap.data();
+            return userData.phoneNumber;
+        } else {
+            console.log("No such document!");
+        }
+    }
+
 }
 
 const authService = new AuthService();

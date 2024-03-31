@@ -2,42 +2,55 @@ import './Perfil.css';
 import Header2 from '../../components/Header2/Header2'
 import Footer2 from "../../components/footer2/footer2";
 import person_icon from '../../assets/person.svg';
-import React, { useEffect, useState } from 'react';
-import { auth, db } from '../../../controller/services/firebase';
-import {AuthContext} from '../../../controller/services/AuthContext'
-
+import React from 'react'
+import authService from '../../../controller/services/AuthService';
+import { useState, useEffect } from 'react';
 
 export default function Perfil() {
-    const user = useContext(AuthContext);
-    const [userData, setUserData] = useState(null);
+
+    const [userName, setUserName] = useState(null);
+    const [userEmail, setUserEmail] = useState(null);
+    const [userPhone, setuserPhone] = useState(null);
+    
 
     useEffect(() => {
-        const fetchUserData = async () => {
+        async function fetchName() {
             try {
-                // Obtener el usuario actualmente autenticado
-                const user = auth.currentUser;
-                if (user) {
-                    const uid = user.uid;
-                    // Obtener el documento del usuario directamente con su UID
-                    const userDoc = await db.collection('users').doc(uid).get();
-                    if (userDoc.exists) {
-                        // Establecer los datos del usuario en el estado
-                        setUserData(userDoc.data());
-                    } else {
-                        console.log('El documento no existe');
-                    }
-                } else {
-                    console.log('No hay usuario autenticado');
-                }
+                const name = await authService.getName();
+                setUserName(name);
             } catch (error) {
-                console.error('Error obteniendo el documento:', error);
+                console.error('Error fetching user email:', error);
             }
-        };
+        }
+        fetchName();
+    }, []);
 
-        fetchUserData();
-    }, [user]);
 
 
+    useEffect(() => {
+        async function fetchEmail() {
+            try {
+                const email = await authService.getEmail();
+                setUserEmail(email);
+            } catch (error) {
+                console.error('Error fetching user email:', error);
+            }
+        }
+        fetchEmail();
+    }, []);
+
+
+    useEffect(() => {
+        async function fetchPhone() {
+            try {
+                const phoneNumber = await authService.getPhone();
+                setuserPhone(phoneNumber);
+            } catch (error) {
+                console.error('Error fetching user email:', error);
+            }
+        }
+        fetchPhone();
+    }, []);
 
   return (
     <>
@@ -46,18 +59,9 @@ export default function Perfil() {
         <div className='User_info'>
             <div className='user_picture'><img id='img' src={person_icon} alt='foto de perfil'/>
             </div>
-                    <h1>Datos del usuario</h1>
-            {userData ? (
-                <div>
-                <p>UID: {userData.uid}</p>
-                <p>Nombre: {userData.name}</p>
-                {/* Añade más campos según la estructura de tu documento */}
-                </div>
-            ) : (
-                <p>No hay usuario autenticado</p>
-            )}
+            <h4 className='t'>{userName}</h4>
             <div>__________________________________</div>
-            <h5>Correo electronico: </h5>
+            <h5>Correo electronico: {userEmail}</h5>
             <h5>Fecha de Nacimiento: </h5>
             <h5>Agrupaciones a las que pertenezco: </h5>
         </div>
@@ -65,18 +69,18 @@ export default function Perfil() {
         <div className='User_edit'>
             <div className='c'>
             <label>Nombre 
-                <input className= 'input' type='text' />
+                <input className= 'input' type='text' value={userName}/>
             </label>
             <label>Apellido 
                 <input className= 'input'type='text' />
             </label>
             <label>Telefono
-                <input className= 'input' type='text' />
+                <input className= 'input' type='text' value={userPhone} />
             </label>
             </div>
             <div className='c'>
             <label>Correo Electronico
-                <input className= 'input' type='email' />
+                <input className= 'input' type='email' value={userEmail} />
             </label>
             <label>Fecha de Nacimiento 
                 <input className= 'input' type='date' />
