@@ -19,7 +19,7 @@ const Header2 = () => {
 
   const handleOut = async () => {
     try {
-      navigate("/")
+      navigate("/");
       await authService.signOut();
     } catch (error) {
       console.error('Error', error);
