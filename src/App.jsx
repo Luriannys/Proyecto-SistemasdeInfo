@@ -45,35 +45,11 @@ function App() {
             element={<Register user={user} />}
           ></Route>
 
-          <Route
-            exact
-            path="/dashboard"
-            element={
-              <Dashboard />
-              // <ProtectedRouteDash user={user}>
+          <Route exact path= "/dashboard" element={<Dashboard />}></Route>
 
-              // </ProtectedRouteDash>
-            }
-          ></Route>
 
-          <Route exact path="/dashboard/:id" element={
-            <CategoriesDash />
-            // <ProtectedRouteAgrupacion user={user}>
+          <Route exact path="/dashboard/:id" element={<CategoriesDash />}></Route>
 
-            // </ProtectedRouteAgrupacion>
-          }
-          ></Route>
-
-          <Route
-            exact
-            path="/newCategory"
-            element={
-              <NewCategory />
-              // <ProtectedRouteDash user={user}>
-
-              // </ProtectedRouteDash>
-            }
-          ></Route>
 
           <Route exact path="/menuAgrup" element={
             <ProtectedRouteMenu user={user}>
