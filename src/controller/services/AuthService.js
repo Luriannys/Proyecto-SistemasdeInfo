@@ -35,6 +35,7 @@ class AuthService {
                 name: name,
                 email: email,
                 phoneNumber: phone,
+                BelongsTo: [],
             })
         } catch (error) {
             console.error('Error signing up:', error);
@@ -53,6 +54,7 @@ class AuthService {
                     name: user.displayName,
                     email: user.email,
                     phoneNumber: user.phoneNumber != null ? user.phoneNumber : null,
+                    BelongsTo: [],
                 })
             } else {
                 console.log("The user already exists");
