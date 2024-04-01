@@ -21,7 +21,6 @@ export default function CategoriesDash() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setAgrupacion(dataAgrup);
     navigate("/category/:nombre");
   };
 
