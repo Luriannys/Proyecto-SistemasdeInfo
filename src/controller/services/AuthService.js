@@ -36,6 +36,7 @@ class AuthService {
                 email: email,
                 phoneNumber: phone,
                 BelongsTo: [],
+                IsAdmin: false,
             })
         } catch (error) {
             console.error('Error signing up:', error);
@@ -55,6 +56,7 @@ class AuthService {
                     email: user.email,
                     phoneNumber: user.phoneNumber != null ? user.phoneNumber : null,
                     BelongsTo: [],
+                    IsAdmin: false,
                 })
             } else {
                 console.log("The user already exists");
@@ -161,6 +163,22 @@ class AuthService {
         }
     }
 
+    getAdminStatus = async () => {
+        const user = authService.getCurrentUser()?.uid;
+        console.log(user)
+
+        const docRef = doc(firestoreService.db, "users", user);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const userData = docSnap.data();
+            console.log(await userData.IsAdmin)
+            const status= await userData.IsAdmin;
+            return status;
+        } else {
+            console.log("No such document!");
+        }
+    }
 }
 
 const authService = new AuthService();
