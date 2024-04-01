@@ -14,16 +14,16 @@ class admin extends user{
         //Creacion del documento de agrupacion
         await addDoc(FirebaseAgg,{
             category: Cat,
-            testimonios: null,
-            Contribuidores: null,
+            testimonios: [],
+            Contribuidores: [],
             CrationYear: TodaysYear,
             descripcion: Desc,
             email: Email,
             imagen: img,
             instagram: insta,
-            Members: null,
+            Members: [],
             nombre: Name,
-            PromRaiting: 0,
+            PromRating: 0,
             telefono: tlf
         });
     }
@@ -34,7 +34,7 @@ class admin extends user{
     }
     async editGroup(GroupId,Cat,Desc,Email,img,insta,Name,tlf){
         const selectedgroup = doc(db,"Agrupaciones",GroupId);
-        update(selectedgroup,{
+        updateDoc(selectedgroup,{
             category: Cat,
             descripcion: Desc,
             email: Email,
@@ -49,7 +49,7 @@ class admin extends user{
         //Creacion del documento de Categoría
         await addDoc(FirebaseAgg,{
             nombre: Name,
-            Groups: null
+            Groups: []
         });
     }
     async deleteCategory(CatId){
