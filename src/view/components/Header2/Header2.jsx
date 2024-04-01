@@ -5,15 +5,28 @@ import person_icon from '../../assets/person.svg';
 import expand_more from '../../assets/expand_more.svg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import authService from '../../../controller/services/AuthService';
+import { useNavigate } from "react-router-dom";
 
 
 const Header2 = () => {
+  const navigate = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  return (
+  const handleOut = async () => {
+    try {
+      navigate("/")
+      await authService.signOut();
+    } catch (error) {
+      console.error('Error', error);
+    }
+  };
+
+    return (
     <div className={style.bar}>
         <img src={logo} alt="Logo Unimet" className={style.logo} />
         <div className={style.perfil}>
@@ -24,7 +37,7 @@ const Header2 = () => {
         <div className={style.menu}>
           <Link to='/Perfil' className={style.l}><button className={style.btn_p}>Mi cuenta</button></Link>
           <Link to='/donaciones' className={style.l}><button className={style.btn_p}>Realizar Donación</button></Link>
-          <Link className={style.l}><button className={style.btn_p} >Cerrar Sesión</button></Link>
+          <Link className={style.l}><button className={style.btn_p} onClick={handleOut}>Cerrar Sesión</button></Link>
         </div>)}
 
 
@@ -33,3 +46,4 @@ const Header2 = () => {
 };
 
 export default Header2;
+
