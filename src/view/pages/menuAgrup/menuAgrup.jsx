@@ -14,6 +14,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Agrupacion from "../agrupacion/agrupacion";
+import authService from "../../../controller/services/AuthService";
 
 export default function MenuAgrup() {
   const [items, setItems] = useState([]);
@@ -53,7 +54,7 @@ export default function MenuAgrup() {
     return <div>Loading...</div>;
   }
 
-  const administrador = true;
+  const administrador = authService.getAdminStatus();
 
   return (
     <div>
