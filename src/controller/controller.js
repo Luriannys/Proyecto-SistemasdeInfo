@@ -34,3 +34,5 @@ class Controller{
         });
     }
 }
+const Controlador = new Controller();
+export default Controlador;
