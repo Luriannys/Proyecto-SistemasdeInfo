@@ -1,5 +1,4 @@
 import { db } from './firebase';
-
 class FirestoreService {
     constructor() {
         if (!FirestoreService.instance) {
