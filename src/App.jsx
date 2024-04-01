@@ -13,9 +13,9 @@ import Donaciones from "./view/pages/donaciones/donaciones";
 import  Testimonio  from "./view/pages/Testimonio/Testimonio";
 import New_Group from "./view/pages/New_Group/New_Group";
 
-import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil, ProtectedRouteDonaciones  } from "./view/components/protectedRoutes/ProtectedRoute";
-import {  onAuthStateChanged  } from "firebase/auth"
-import {  useEffect, useState  } from "react"
+import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil, ProtectedRouteDonaciones } from "./view/components/protectedRoutes/ProtectedRoute";
+import { onAuthStateChanged } from "firebase/auth"
+import { useEffect, useState } from "react"
 import { auth } from "./controller/services/firebase";
 
 
@@ -23,15 +23,15 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        return;
-      }
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if(user) {
+          setUser(user);
+          return;
+        }
 
-      setUser(null);
-    });
-    return () => unsubscribe();
+        setUser(null);
+      });
+      return () => unsubscribe();
   }, []);
 
   return (
@@ -39,43 +39,28 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Landing />}></Route>
-          <Route exact path="/login" element={<Login user={user} />}></Route>
+          <Route exact path="/login" element={<Login user={user}/>}></Route>
 
           <Route exact path="/register" element={<Register user={user} />}></Route>
 
-          <Route exact path="/dashboard" element={<Dashboard />
-            // <ProtectedRouteDash user={user}>
-
-            // </ProtectedRouteDash>
-          }
-          ></Route>
-
-          <Route exact path="/newCategory" element={<NewCategory />
-            // <ProtectedRouteDash user={user}>
-
-            // </ProtectedRouteDash>
-          }
-          ></Route>
-
-          <Route exact path="/dashboard/:nombre" element={
-            <CategoriesDash />
-            // <ProtectedRouteDash user={user}>
-
-            // </ProtectedRouteDash>
+          <Route exact path="/dashboard" element={
+            <ProtectedRouteDash user={user}>
+              <Dashboard />
+            </ProtectedRouteDash>
           }
           ></Route>
 
           <Route exact path="/menuAgrup" element={
-            <ProtectedRouteMenu user={user}>
-              <MenuAgrup />
-            </ProtectedRouteMenu>
+          <ProtectedRouteMenu user={user}>
+          <MenuAgrup />
+          </ProtectedRouteMenu>
           }
           ></Route>
 
           <Route exact path="/agrupacion/:id" element={
-              <ProtectedRouteAgrupacion user={user}>
-                  <Agrupacion />
-              </ProtectedRouteAgrupacion>
+            <ProtectedRouteAgrupacion user={user}>
+              <Agrupacion />
+            </ProtectedRouteAgrupacion>
           }
           ></Route>
 
@@ -87,9 +72,9 @@ function App() {
           ></Route>
 
           <Route exact path='/Perfil' element={
-              <ProtectedRoutePerfil user={user}>
-                  <Perfil  />
-              </ProtectedRoutePerfil>
+            <ProtectedRoutePerfil user={user}>
+              <Perfil />
+            </ProtectedRoutePerfil>
           }
           ></Route>
           <Route exact path='/testimonio' element={<Testimonio />}></Route>
