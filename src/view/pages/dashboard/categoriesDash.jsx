@@ -40,7 +40,7 @@ export default function CategoriesDash() {
     };
 
     fetchItems();
-  }, []);
+  }, [id]);
 
   const handleAgrupSelection = (item) => {
     navigate(`/agrupacion/${item.id}`);
