@@ -1,7 +1,5 @@
-import key from "./dashboard";
 import style from "./categoriesDash.module.css";
 import Header2 from "../../components/Header2/Header2";
-import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
 import {
   collection,

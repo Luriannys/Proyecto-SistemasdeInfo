@@ -7,7 +7,9 @@ html {
 }
 
 body {
+  display: flexbox;
   background: #F4F2EF;
+  
 }
 
 p {

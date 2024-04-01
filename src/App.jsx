@@ -49,17 +49,30 @@ function App() {
             exact
             path="/dashboard"
             element={
-              <ProtectedRouteDash user={user}>
-                <Dashboard />
-              </ProtectedRouteDash>
+              <Dashboard />
+              // <ProtectedRouteDash user={user}>
+
+              // </ProtectedRouteDash>
             }
           ></Route>
 
           <Route exact path="/dashboard/:id" element={
-            <ProtectedRouteAgrupacion user={user}>
-              <CategoriesDash />
-            </ProtectedRouteAgrupacion>
+            <CategoriesDash />
+            // <ProtectedRouteAgrupacion user={user}>
+
+            // </ProtectedRouteAgrupacion>
           }
+          ></Route>
+
+          <Route
+            exact
+            path="/newCategory"
+            element={
+              <NewCategory />
+              // <ProtectedRouteDash user={user}>
+
+              // </ProtectedRouteDash>
+            }
           ></Route>
 
           <Route exact path="/menuAgrup" element={
@@ -73,9 +86,10 @@ function App() {
             exact
             path="/agrupacion/:id"
             element={
-              <ProtectedRouteAgrupacion user={user}>
-                <Agrupacion />
-              </ProtectedRouteAgrupacion>
+              <Agrupacion />
+              // <ProtectedRouteAgrupacion user={user}>
+
+              // </ProtectedRouteAgrupacion>
             }
           ></Route>
 
