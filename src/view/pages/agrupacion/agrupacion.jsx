@@ -67,7 +67,7 @@ export default function Agrupacion() {
             className="btns_"
             onClick={() => handleAgrupSelection(agrupacion)}
           >
-            VER MAS
+            Agregar Testimonio
           </button>
           <button className="btns_">
             {" "}
