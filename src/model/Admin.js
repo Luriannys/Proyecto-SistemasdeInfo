@@ -65,4 +65,5 @@ class admin extends user{
     }
 }
 
-export default admin;
+const SystemAdmin  = new admin();
+export default SystemAdmin;
