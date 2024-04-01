@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import "./Testimonio.css";
 import Header2 from "../../components/Header2/Header2";
 import { db } from "/src/controller/services/firebase.js";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 
 export default function Testimonio() {
   const [agrupacion, setAgrupacion] = useState(null);
   const [testimony, setTestimony] = useState("");
   const { id } = useParams();
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchAgrupacion = async () => {
       const docRef = doc(db, "Agrupaciones", id);
@@ -38,11 +40,16 @@ export default function Testimonio() {
       console.error("Error adding testimony: ", error);
     }
   };
+
   const agregar = () => {
     if (testimony) {
       // Check if testimony is not empty
       addTestimonio(id, testimony);
     }
+  };
+
+  const cancelar = () => {
+    navigate(`/agrupacion/${id}`);
   };
 
   return (
@@ -59,7 +66,9 @@ export default function Testimonio() {
           type="text"
         />
         <div className="botones_t">
-          <button className="canceled">Cancelar</button>
+          <button className="canceled" onClick={cancelar}>
+            Cancelar
+          </button>
           <button className="btns_" onClick={agregar}>
             Agregar
           </button>
