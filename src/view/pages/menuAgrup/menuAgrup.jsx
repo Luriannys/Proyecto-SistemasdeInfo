@@ -1,8 +1,8 @@
-import style  from "./menuAgrup.module.css";
+import style from "./menuAgrup.module.css";
 import Header2 from "../../components/Header2/Header2";
 import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
-import mas from '../../assets/mas.svg';
+import mas from "../../assets/mas.svg";
 import {
   doc,
   getDoc,
@@ -36,7 +36,6 @@ export default function MenuAgrup() {
         ...doc.data(),
       }));
       setItems(itemsList);
-      console.log(itemsList);
     };
 
     fetchItems();
@@ -54,8 +53,7 @@ export default function MenuAgrup() {
     return <div>Loading...</div>;
   }
 
-  const administrador =true;
-
+  const administrador = true;
 
   return (
     <div>
@@ -67,8 +65,15 @@ export default function MenuAgrup() {
       ></input>
       <ul className={style.group_card}>
         {filteredAgrup.map((item) => (
-          <li className={style.card} key={item.id} style={{ listStyleType: "none", backgroundImage: `url(${item.imagen})`}}>
-            <div className={style.card_title} >
+          <li
+            className={style.card}
+            key={item.id}
+            style={{
+              listStyleType: "none",
+              backgroundImage: `url(${item.imagen})`,
+            }}
+          >
+            <div className={style.card_title}>
               <strong>{item.nombre}</strong>
             </div>
 
@@ -85,8 +90,12 @@ export default function MenuAgrup() {
         ))}
       </ul>
       {administrador && (
-              <Link to= '/New_Group'><button className={style.btn_newG}><img className={style.mas} src={mas}/></button></Link>
-            )}
+        <Link to="/New_Group">
+          <button className={style.btn_newG}>
+            <img className={style.mas} src={mas} />
+          </button>
+        </Link>
+      )}
       <Footer2></Footer2>
     </div>
   );
