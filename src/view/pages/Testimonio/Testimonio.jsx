@@ -43,7 +43,6 @@ export default function Testimonio() {
 
   const agregar = () => {
     if (testimony) {
-      // Check if testimony is not empty
       addTestimonio(id, testimony);
     }
   };
