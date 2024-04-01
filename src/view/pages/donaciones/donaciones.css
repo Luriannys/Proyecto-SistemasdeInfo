@@ -45,7 +45,6 @@
     margin-top: 20px;
 }
 
-
 button.send {
     display: flex;
     width: 100%;
@@ -67,4 +66,40 @@ button.send {
     line-height: 17px;
     letter-spacing: 0.25px;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 50px;
+        right: 30%;
+    }
+
+    .texto {
+        width: 70%;
+    }
+
+    .donaciones_form {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .foto {
+        height: 70vh;
+    }
+
+    .title {
+        font-size: 40px;
+        bottom: 20%;
+        top: 40%;
+        right: 25%;
+    }
+
+    .texto {
+        width: 80%;
+    }
+
+    .donaciones_form {
+        width: 95%;
+    }
 }
