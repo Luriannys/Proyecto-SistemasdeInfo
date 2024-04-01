@@ -172,9 +172,8 @@ class AuthService {
 
         if (docSnap.exists()) {
             const userData = docSnap.data();
-            console.log(await userData.IsAdmin)
-            const status= await userData.IsAdmin;
-            return status;
+            console.log(userData.IsAdmin)
+            return userData.IsAdmin;
         } else {
             console.log("No such document!");
         }

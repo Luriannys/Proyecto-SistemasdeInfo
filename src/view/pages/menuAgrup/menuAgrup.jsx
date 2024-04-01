@@ -56,6 +56,7 @@ export default function MenuAgrup() {
   }
 
   const administrador = authService.getAdminStatus();
+
   return (
     <div>
       <Header2 />
