@@ -15,7 +15,7 @@ const Header2 = () => {
 
   return (
     <div className={style.bar}>
-        <img src={logo} alt="Logo Unimet" className={style.logo_} />
+        <img src={logo} alt="Logo Unimet" className={style.logo} />
         <div className={style.perfil}>
         <div className={style.icon}><img src={person_icon}  alt='icono'/></div>
         <button onClick={toggleMenu} className={style.btn_expand} type="button"> <img src={expand_more}/> </button>

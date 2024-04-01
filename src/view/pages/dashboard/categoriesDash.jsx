@@ -1,21 +1,19 @@
-import key from "./dashboard";
-import style  from "./categoriesDash.module.css";
+import style from "./categoriesDash.module.css";
 import Header2 from "../../components/Header2/Header2";
-import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
 import {
-  doc,
-  getDoc,
   collection,
   getDocs,
   query,
   where,
 } from "firebase/firestore";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Agrupacion from "../agrupacion/agrupacion";
 
 export default function CategoriesDash() {
+  const { id } = useParams();
+
   const [items, setItems] = useState([]);
   const [selectedAgrup, setSelectedAgrup] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,7 +21,6 @@ export default function CategoriesDash() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setAgrupacion(dataAgrup);
     navigate("/category/:nombre");
   };
 
@@ -31,7 +28,7 @@ export default function CategoriesDash() {
   useEffect(() => {
     const fetchItems = async () => {
       const itemsCollection = collection(db, "Agrupaciones");
-      const q = query(itemsCollection, where("category", "==", "Aire Libre"));
+      const q = query(itemsCollection, where("category", "==", id));
       const itemsSnapshot = await getDocs(q);
       const itemsList = itemsSnapshot.docs.map((doc) => ({
         id: doc.id,
@@ -40,9 +37,9 @@ export default function CategoriesDash() {
       setItems(itemsList);
       console.log(itemsList);
     };
-  
+
     fetchItems();
-  }, []); 
+  }, [id]);
 
   const handleAgrupSelection = (item) => {
     navigate(`/agrupacion/${item.id}`);

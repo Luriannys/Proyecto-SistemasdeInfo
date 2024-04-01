@@ -1,36 +1,33 @@
-.category_card{
+.category_card {
     display: flex;
-    flex-direction: row;
-    margin-top: 90px;
-    margin-left: 190px;
-    margin-bottom: 90px;
-    margin-right: 190px;
-    justify-content:center;
+    flex-wrap: wrap;
+    justify-content: center;
 
 }
 
-.card{
+.card {
     width: 350px;
     height: 170px;
     background-color: orange;
-    margin-right: 90px;
+    margin: 20px;
     padding: 45px;
     border-radius: 20px;
     justify-content: center;
 
-   
+
 }
-.title{
+
+.title {
     font-size: 35px;
     color: #FFFF;
     text-align: center;
     margin-top: 41px;
     display: flex;
     flex-direction: column;
-    
+
 }
 
-.btn_info{
+.btn_info {
     background-color: transparent;
     border: transparent;
     color: #FFFF;
@@ -38,6 +35,20 @@
     cursor: pointer;
 }
 
+
+.btn_plus {
+
+    height: 50px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    background-color: transparent;
+    border: transparent;
+    position: absolute;
+    cursor: pointer;
+    top: 2%;
+    right: 18%;
+}
 
 .search {
     width: 549.62px;
@@ -52,55 +63,56 @@
 }
 
 @media (max-width: 800px) {
-    .group_card{
+    .group_card {
         flex-direction: column;
         width: 160px;
-        
-        
+
+
 
     }
 
-    .card{
+    .card {
         width: 100%;
         margin: 20px;
-        margin-right: 10px; 
+        margin-right: 10px;
     }
 
     .search {
-       width: 200px;
-       right: 20%;
+        width: 200px;
+        right: 20%;
     }
 }
 
 @media (max-width: 1148px) {
-    .search{
+    .search {
         width: 400.62px;
     }
 
 }
 
 @media (max-width: 702px) {
-    .search{
+    .search {
         width: 300px;
-        
 
-    }}
+
+    }
+}
 
 @media (max-width: 578px) {
-        .search{
-            width: 80px;
-            right: 35%;
-        }
-
-        .card{
-            width: 290px;
-            margin: 10px;
-        }
-
-        .category_card{
-            padding: 0;
-            flex-direction: column;
-            margin: 10px;
-        }
-    
+    .search {
+        width: 80px;
+        right: 35%;
     }
+
+    .card {
+        width: 290px;
+        margin: 10px;
+    }
+
+    .category_card {
+        padding: 0;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+}

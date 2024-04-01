@@ -2,14 +2,10 @@ import style from "./dashboard.module.css";
 import Header2 from "../../components/Header2/Header2";
 import { db } from "/src/controller/services/firebase.js";
 import {
-    doc,
-    getDoc,
     collection,
     getDocs,
-    query,
-    where,
 } from "firebase/firestore";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Agrupacion from "../agrupacion/agrupacion";
 import plus from "../../assets/plus.svg"
@@ -45,11 +41,11 @@ export default function Dashboard() {
         const itemCategory = item.nombre;
         navigate(`/dashboard/${itemCategory}`);
     };
-    
-    const handleNewCategory = () =>{
+
+    const handleNewCategory = () => {
         navigate('/newCategory')
     }
-    
+
     const filteredAgrup = items.filter((category) =>
         category.nombre.toLowerCase().includes(searchQuery.toLocaleLowerCase())
     );
@@ -67,7 +63,7 @@ export default function Dashboard() {
                 onChange={(e) => setSearchQuery(e.target.value)}
             ></input>
             <button className={style.btn_plus}
-            onClick={() => handleNewCategory()}> <img src={plus} alt="plus" /> </button>
+                onClick={() => handleNewCategory()}> <img src={plus} alt="plus" /> </button>
             <ul className={style.category_card}>
                 {filteredAgrup.map((item) => (
                     <li className={style.card} key={item.nombre} style={{ listStyleType: "none" }}>
@@ -90,7 +86,7 @@ export default function Dashboard() {
 
     );
 
-    
+
 }
 
 

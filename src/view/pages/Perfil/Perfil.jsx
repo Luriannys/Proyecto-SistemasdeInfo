@@ -11,7 +11,18 @@ export default function Perfil() {
     const [userName, setUserName] = useState(null);
     const [userEmail, setUserEmail] = useState(null);
     const [userPhone, setuserPhone] = useState(null);
+
+    const handleNameChange = (e) => {
+        setUserName(e.target.value);
+    };
     
+    const handlePhoneChange = (e) => {
+        setuserPhone(e.target.value);
+    };
+
+    const handleEmailChange = (e) => {
+        setUserEmail(e.target.value);
+    };
 
     useEffect(() => {
         async function fetchName() {
@@ -69,24 +80,21 @@ export default function Perfil() {
         <div className='User_edit'>
             <div className='c'>
             <label>Nombre 
-                <input className= 'input' type='text' value={userName}/>
-            </label>
-            <label>Apellido 
-                <input className= 'input'type='text' />
+                <input className= 'input' type='text' value={userName} onChange={handleNameChange}/>
             </label>
             <label>Telefono
-                <input className= 'input' type='text' value={userPhone} />
+                <input className= 'input' type='text' value={userPhone} onChange={handlePhoneChange}/>
+            </label>
+            <label>Carrera
+                <input className= 'input' type='text' />
             </label>
             </div>
             <div className='c'>
             <label>Correo Electronico
-                <input className= 'input' type='email' value={userEmail} />
+                <input className= 'input' type='email' value={userEmail} onChange={handleEmailChange}/>
             </label>
             <label>Fecha de Nacimiento 
                 <input className= 'input' type='date' />
-            </label>
-            <label>Carrera
-                <input className= 'input' type='text' />
             </label>
             </div>
             <button className='btn_edit'> Actualizar </button>

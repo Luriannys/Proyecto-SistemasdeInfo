@@ -2,19 +2,17 @@ import "./agrupacion.css";
 import Header2 from "../../components/Header2/Header2";
 import Footer2 from "../../components/footer2/footer2";
 import { db } from "/src/controller/services/firebase.js";
-import saman from '../../assets/saman.jpg';
-import ig from '../../assets/ig.svg';
-import email from '../../assets/email.svg';
-import {
-  doc,
-  getDoc,
-} from "firebase/firestore";
+import saman from "../../assets/saman.jpg";
+import ig from "../../assets/ig.svg";
+import email from "../../assets/email.svg";
+import { doc, getDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 
 export default function Agrupacion() {
   const [agrupacion, setAgrupacion] = useState(null);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAgrupacion = async () => {
@@ -31,10 +29,13 @@ export default function Agrupacion() {
     fetchAgrupacion();
   }, [id]);
 
+  const handleAgrupSelection = (item) => {
+    navigate(`/testimonio/${item.id}`);
+  };
+
   if (!agrupacion) {
     return <div></div>;
   }
-
 
   /*const [unido,Set_unido] = useState(false);
   const text = unido ? "Desunirse" : "Unete";
@@ -44,37 +45,69 @@ export default function Agrupacion() {
     }
 */
 
-
   return (
     <div>
       <Header2 />
-      <div className="imagen_group" style={{ backgroundImage: `url(${agrupacion.imagen})`}}>
+      <div
+        className="imagen_group"
+        style={{ backgroundImage: `url(${agrupacion.imagen})` }}
+      >
         <h1 className="title_g">{agrupacion.nombre}</h1>
       </div>
       <div className="Info_card">
-        <p style={{ textAlign: 'justify' }}>{agrupacion.descripcion}</p>
+        <p style={{ textAlign: "justify" }}>{agrupacion.descripcion}</p>
         <div className="btns">
-          <Link to="/donaciones"><button className="btns_"> <strong>Donar </strong></button></Link>
-          <Link to='/testimonio'><button className="btns_" > <strong>Agregar Testimonio</strong> </button></Link>
-          <button className="btns_"> <strong> Unirse</strong></button>
+          <Link to="/donaciones">
+            <button className="btns_">
+              {" "}
+              <strong>Donar </strong>
+            </button>
+          </Link>
+          <button
+            className="btns_"
+            onClick={() => handleAgrupSelection(agrupacion)}
+          >
+            Agregar Testimonio
+          </button>
+          <button className="btns_">
+            {" "}
+            <strong> Unirse</strong>
+          </button>
         </div>
-        <div style={{ marginBottom: '15px' }}>
-          <div style={{ marginBottom: '15px' }}>
+        <div style={{ marginBottom: "15px" }}>
+          <div style={{ marginBottom: "15px" }}>
             <strong>Contáctanos</strong>
-          </div >
-          <div className="contact_us"><img className='icon_i' src={ig} /><p>{agrupacion.instagram}</p></div>
-          <div className="contact_us"><img className='icon_i' src={email} /><p>{agrupacion.email}</p></div>
-        </div >
-        <span style={{ color: 'black', fontSize: '40px', textAlign: 'center' }}>Mira lo que <span style={{ color: '#FD8204', fontSize: '40px', textAlign: 'center' }}>otros opinan</span></span>
+          </div>
+          <div className="contact_us">
+            <img className="icon_i" src={ig} />
+            <p>{agrupacion.instagram}</p>
+          </div>
+          <div className="contact_us">
+            <img className="icon_i" src={email} />
+            <p>{agrupacion.email}</p>
+          </div>
+        </div>
+        <span style={{ color: "black", fontSize: "40px", textAlign: "center" }}>
+          Mira lo que{" "}
+          <span
+            style={{ color: "#FD8204", fontSize: "40px", textAlign: "center" }}
+          >
+            otros opinan
+          </span>
+        </span>
         <ul className="testimonies">
           {agrupacion.testimonios.map((item) => (
-            <li key={item} style={{ listStyleType: 'none' }} className="feedback_box">
-              <span >{item}</span>
+            <li
+              key={item}
+              style={{ listStyleType: "none" }}
+              className="feedback_box"
+            >
+              <span>{item}</span>
             </li>
           ))}
         </ul>
-      </div >
+      </div>
       <Footer2></Footer2>
-    </div >
+    </div>
   );
 }
