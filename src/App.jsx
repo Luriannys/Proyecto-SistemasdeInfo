@@ -12,23 +12,16 @@ import NewCategory from "./view/pages/dashboard/newCategory";
 import Donaciones from "./view/pages/donaciones/donaciones";
 import Testimonio from "./view/pages/Testimonio/Testimonio";
 import New_Group from "./view/pages/New_Group/New_Group";
-
-import {
-  ProtectedRouteDash,
-  ProtectedRouteMenu,
-  ProtectedRouteAgrupacion,
-  ProtectedRoutePerfil,
-  ProtectedRouteDonaciones,
-} from "./view/components/protectedRoutes/ProtectedRoute";
-import { onAuthStateChanged } from "firebase/auth";
-import { useEffect, useState } from "react";
-import { auth } from "./controller/services/firebase";
+import { ProtectedRouteDash, ProtectedRouteMenu, ProtectedRouteAgrupacion, ProtectedRoutePerfil, ProtectedRouteDonaciones } from "./view/components/protectedRoutes/ProtectedRoute";
+import { onAuthStateChanged } from "firebase/auth"
+import { useEffect, useState } from "react"
+import authService from "./controller/services/AuthService";
 
 function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(authService.auth, (user) => {
       if (user) {
         setUser(user);
         return;
@@ -62,14 +55,18 @@ function App() {
             }
           ></Route>
 
-          <Route
-            exact
-            path="/menuAgrup"
-            element={
-              <ProtectedRouteMenu user={user}>
-                <MenuAgrup />
-              </ProtectedRouteMenu>
-            }
+          <Route exact path="/dashboard/:id" element={
+            <ProtectedRouteAgrupacion user={user}>
+              <CategoriesDash />
+            </ProtectedRouteAgrupacion>
+          }
+          ></Route>
+
+          <Route exact path="/menuAgrup" element={
+            <ProtectedRouteMenu user={user}>
+              <MenuAgrup />
+            </ProtectedRouteMenu>
+          }
           ></Route>
 
           <Route
